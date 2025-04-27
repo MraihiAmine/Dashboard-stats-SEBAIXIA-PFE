@@ -12,15 +12,14 @@ import java.util.stream.Collectors;
 
 public class UserInfoUserDetails implements UserDetails {
 
-
     private String name;
     private String password;
     private List<GrantedAuthority> authorities;
 
     public UserInfoUserDetails(UserInfo userInfo) {
-        name=userInfo.getName();
-        password=userInfo.getPassword();
-        authorities= Arrays.stream(userInfo.getRoles().split(","))
+        name = userInfo.getName();
+        password = userInfo.getPassword();
+        authorities = Arrays.stream(userInfo.getRoles().split(","))
                 .map(SimpleGrantedAuthority::new)
                 .collect(Collectors.toList());
     }
