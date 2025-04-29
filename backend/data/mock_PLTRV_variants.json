@@ -1,0 +1,177 @@
+[
+  {
+    "data_creation": "2023-10-03T14:23:00+02:00",
+    "date_modification": "2023-10-03T14:23:00+02:00",
+    "id_project": 6857021,
+    "Code_configurateur": "PLTRV",
+    "resume": {
+      "quantity": 1,
+      "totalPrice": 1550.0,
+      "totalPriceLowCharges": 1350.0,
+      "artCode": "2516801",
+      "details": [
+        {
+          "unitPrice": 0.0,
+          "detailLines": [
+            {
+              "unitPrice": 0.0,
+              "quantity": 1.0,
+              "totalPrice": 1250.0,
+              "designation": "Placard",
+              "detail": "Placard coulissant 3 portes miroir (H : 2400 x L : 2800)",
+              "cpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpSolution.wksPlTrv/FO/foSolution.FP/fpSolution",
+              "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpConfigurationPortes[1]",
+              "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+            }
+          ],
+          "quantity": 1,
+          "totalPrice": 1250.0,
+          "designation": "Solution placard",
+          "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpConfigurationPortes[1]",
+          "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+        }
+      ],
+      "productName": "PLACARD COULISSANT 3 PORTES MIROIR - PORTES CONFIGURATION 1"
+    }
+  },
+  {
+    "data_creation": "2023-10-03T14:23:00+02:00",
+    "date_modification": "2023-10-03T14:23:00+02:00",
+    "id_project": 6857022,
+    "Code_configurateur": "PLTRV",
+    "resume": {
+      "quantity": 1,
+      "totalPrice": 1600.0,
+      "totalPriceLowCharges": 1400.0,
+      "artCode": "2516802",
+      "details": [
+        {
+          "unitPrice": 0.0,
+          "detailLines": [
+            {
+              "unitPrice": 0.0,
+              "quantity": 1.0,
+              "totalPrice": 1300.0,
+              "designation": "Placard",
+              "detail": "Placard coulissant 2 portes bois (H : 2200 x L : 2000)",
+              "cpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpSolution.wksPlTrv/FO/foSolution.FP/fpSolution",
+              "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpConfigurationInterieur[2]",
+              "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+            }
+          ],
+          "quantity": 1,
+          "totalPrice": 1300.0,
+          "designation": "Solution placard",
+          "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpConfigurationInterieur[2]",
+          "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+        }
+      ],
+      "productName": "PLACARD COULISSANT 2 PORTES BOIS - INTÉRIEUR CONFIGURATION 2"
+    }
+  },
+  {
+    "data_creation": "2023-10-03T14:23:00+02:00",
+    "date_modification": "2023-10-03T14:23:00+02:00",
+    "id_project": 6857023,
+    "Code_configurateur": "PLTRV",
+    "resume": {
+      "quantity": 1,
+      "totalPrice": 1650.0,
+      "totalPriceLowCharges": 1450.0,
+      "artCode": "2516803",
+      "details": [
+        {
+          "unitPrice": 0.0,
+          "detailLines": [
+            {
+              "unitPrice": 0.0,
+              "quantity": 1.0,
+              "totalPrice": 1350.0,
+              "designation": "Placard",
+              "detail": "Placard battant 4 portes (H : 2100 x L : 1800)",
+              "cpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpSolution.wksPlTrv/FO/foSolution.FP/fpSolution",
+              "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpPoignee[3]",
+              "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+            }
+          ],
+          "quantity": 1,
+          "totalPrice": 1350.0,
+          "designation": "Solution placard",
+          "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpPoignee[3]",
+          "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+        }
+      ],
+      "productName": "PLACARD BATTANT 4 PORTES - POIGNEE CONFIGURATION 3"
+    }
+  },
+  {
+    "data_creation": "2023-10-03T14:23:00+02:00",
+    "date_modification": "2023-10-03T14:23:00+02:00",
+    "id_project": 6857024,
+    "Code_configurateur": "PLTRV",
+    "resume": {
+      "quantity": 1,
+      "totalPrice": 1700.0,
+      "totalPriceLowCharges": 1500.0,
+      "artCode": "2516804",
+      "details": [
+        {
+          "unitPrice": 0.0,
+          "detailLines": [
+            {
+              "unitPrice": 0.0,
+              "quantity": 1.0,
+              "totalPrice": 1400.0,
+              "designation": "Placard",
+              "detail": "Placard coulissant 4 portes verre (H : 2500 x L : 3000)",
+              "cpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpSolution.wksPlTrv/FO/foSolution.FP/fpSolution",
+              "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpColoris[4]",
+              "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+            }
+          ],
+          "quantity": 1,
+          "totalPrice": 1400.0,
+          "designation": "Solution placard",
+          "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpColoris[4]",
+          "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+        }
+      ],
+      "productName": "PLACARD COULISSANT 4 PORTES VERRE - COLORIS CONFIGURATION 4"
+    }
+  },
+  {
+    "data_creation": "2023-10-03T14:23:00+02:00",
+    "date_modification": "2023-10-03T14:23:00+02:00",
+    "id_project": 6857025,
+    "Code_configurateur": "PLTRV",
+    "resume": {
+      "quantity": 1,
+      "totalPrice": 1750.0,
+      "totalPriceLowCharges": 1550.0,
+      "artCode": "2516805",
+      "details": [
+        {
+          "unitPrice": 0.0,
+          "detailLines": [
+            {
+              "unitPrice": 0.0,
+              "quantity": 1.0,
+              "totalPrice": 1450.0,
+              "designation": "Placard",
+              "detail": "Placard battant 5 portes (H : 2200 x L : 2500)",
+              "cpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpSolution.wksPlTrv/FO/foSolution.FP/fpSolution",
+              "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpAccessoires[5]",
+              "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+            }
+          ],
+          "quantity": 1,
+          "totalPrice": 1450.0,
+          "designation": "Solution placard",
+          "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpAccessoires[5]",
+          "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+        }
+      ],
+      "productName": "PLACARD BATTANT 5 PORTES - ACCESSOIRES CONFIGURATION 5"
+    }
+  }
+]

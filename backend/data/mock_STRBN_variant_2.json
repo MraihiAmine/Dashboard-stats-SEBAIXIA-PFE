@@ -1,0 +1,74 @@
+{
+  "data_creation": "2023-10-03T14:23:00+02:00",
+  "date_modification": "2023-10-03T14:23:00+02:00",
+  "id_project": 6857002,
+  "Code_configurateur": "STRBN",
+  "resume": {
+    "quantity": 1,
+    "totalPrice": 950.0,
+    "totalPriceLowCharges": 850.0,
+    "artCode": "2516602",
+    "details": [
+      {
+        "unitPrice": 0.0,
+        "detailLines": [
+          {
+            "unitPrice": 0.0,
+            "quantity": 1.0,
+            "totalPrice": 750.0,
+            "designation": "Store banne",
+            "detail": "Store banne motorisé Sunlight (L : 5000 x Avancée : 3500)",
+            "cpe": "CPE.wksStrBn/CP/cpGammeStores.wksStrBn/CP/cpStoreBanne.wksStrBn/CP/cpCanalCom.wksStrBn/CP/cpSolution.wksStrBn/FO/foSolution.FP/fpSolution",
+            "cpCpe": "CPE.wksStrBn/CP/cpGammeStores.wksStrBn/CP/cpStoreBanne.wksStrBn/CP/cpCanalCom.wksStrBn/CP/cpMotorisation[2]",
+            "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+          }
+        ],
+        "quantity": 1,
+        "totalPrice": 750.0,
+        "designation": "Solution store banne",
+        "cpCpe": "CPE.wksStrBn/CP/cpGammeStores.wksStrBn/CP/cpStoreBanne.wksStrBn/CP/cpCanalCom.wksStrBn/CP/cpMotorisation[2]",
+        "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+      }
+    ],
+    "productName": "STORE BANNE MOTORISÉ SUNLIGHT - MOTORISATION CONFIGURATION 2"
+  },
+  "decompo": {
+    "quantity": 1,
+    "totalPrice": 1300.0,
+    "totalPriceLowCharges": 0.0,
+    "artCode": "6857002",
+    "details": [
+      {
+        "unitPrice": 0.0,
+        "detailLines": [
+          {
+            "unitPrice": 0.0,
+            "quantity": 1.0,
+            "totalPrice": 0.0,
+            "designation": "Montant total",
+            "detail": "plus-value accessoires",
+            "cpe": "",
+            "cpCpe": "",
+            "userType": { "name": null, "description": null }
+          },
+          {
+            "unitPrice": 0.0,
+            "quantity": 1.0,
+            "totalPrice": 950.0,
+            "designation": "Store banne",
+            "detail": "Store banne motorisé Sunlight (L : 5000 x Avancée : 3500)",
+            "cpe": "CPE.wksStrBn/CP/cpGammeStores.wksStrBn/CP/cpStoreBanne.wksStrBn/CP/cpCanalCom.wksStrBn/CP/cpSolution.wksStrBn/FO/foSolution.FP/fpSolution",
+            "cpCpe": "CPE.wksStrBn/CP/cpGammeStores.wksStrBn/CP/cpStoreBanne.wksStrBn/CP/cpCanalCom.wksStrBn/CP/cpMotorisation[2]",
+            "userType": { "name": "DisplayOn", "description": "Affichage CP dans le menu IHM Nectar" }
+          }
+        ],
+        "quantity": 1,
+        "totalPrice": 950.0,
+        "designation": "Sous-total store banne",
+        "cpCpe": "CPE.wksStrBn/CP/cpGammeStores.wksStrBn/CP/cpStoreBanne.wksStrBn/CP/cpCanalCom.wksStrBn/CP/cpMotorisation[2]",
+        "userType": { "name": "DisplayOn", "description": "Affichage CP dans le menu IHM Nectar" }
+      }
+    ],
+    "productName": "STORE BANNE MOTORISÉ SUNLIGHT - MOTORISATION CONFIGURATION 2"
+  }
+}

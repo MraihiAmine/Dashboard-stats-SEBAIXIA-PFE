@@ -1,0 +1,35 @@
+{
+    "data_creation": "2023-10-03T14:23:00+02:00",
+    "date_modification": "2023-10-03T14:23:00+02:00",
+    "id_project": 6856981,
+    "Code_configurateur": "PTENT",
+    "resume": {
+        "quantity": 1,
+        "totalPrice": 1250.0,
+        "totalPriceLowCharges": 1100.50,
+        "artCode": "2516531",
+        "details": [
+          {
+            "unitPrice": 0.0,
+            "detailLines": [
+              {
+                "unitPrice": 0.0,
+                "quantity": 1.0,
+                "totalPrice": 980.0,
+                "designation": "Porte d'entrée",
+                "detail": "Porte d'entrée PVC Harmonie (H : 2150 x L : 900)",
+                "cpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpSolution.wksPtEnt/FO/foSolution.FP/fpSolution",
+                "cpCpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpSolution",
+                "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+              }
+            ],
+            "quantity": 1,
+            "totalPrice": 980.0,
+            "designation": "Solution porte d'entrée",
+            "cpCpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpSolution",
+            "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+          }
+        ],
+        "productName": "PORTE D'ENTRÉE PVC HARMONIE BLANC - DIMENSIONS H 2150 x L 900 - Ud: 1.4 W/m2.K"
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "data_creation": "2023-10-03T14:23:00+02:00",
+    "date_modification": "2023-10-03T14:23:00+02:00",
+    "id_project": 6856982,
+    "Code_configurateur": "STRBN",
+    "resume": {
+        "quantity": 1,
+        "totalPrice": 850.0,
+        "totalPriceLowCharges": 750.0,
+        "artCode": "2516532",
+        "details": [
+          {
+            "unitPrice": 0.0,
+            "detailLines": [
+              {
+                "unitPrice": 0.0,
+                "quantity": 1.0,
+                "totalPrice": 650.0,
+                "designation": "Store banne",
+                "detail": "Store banne motorisé Sunlight (L : 4000 x Avancée : 3000)",
+                "cpe": "CPE.wksStrBn/CP/cpGammeStores.wksStrBn/CP/cpStoreBanne.wksStrBn/CP/cpCanalCom.wksStrBn/CP/cpSolution.wksStrBn/FO/foSolution.FP/fpSolution",
+                "cpCpe": "CPE.wksStrBn/CP/cpGammeStores.wksStrBn/CP/cpStoreBanne.wksStrBn/CP/cpCanalCom.wksStrBn/CP/cpSolution",
+                "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+              }
+            ],
+            "quantity": 1,
+            "totalPrice": 650.0,
+            "designation": "Solution store banne",
+            "cpCpe": "CPE.wksStrBn/CP/cpGammeStores.wksStrBn/CP/cpStoreBanne.wksStrBn/CP/cpCanalCom.wksStrBn/CP/cpSolution",
+            "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+          }
+        ],
+        "productName": "STORE BANNE MOTORISÉ SUNLIGHT - DIMENSIONS L 4000 x Avancée 3000 - TOILE DICKSON ORCHESTRA - COLORIS BLANC"
+    }
+}
