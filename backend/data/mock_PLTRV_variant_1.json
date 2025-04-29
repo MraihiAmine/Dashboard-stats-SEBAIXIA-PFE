@@ -1,0 +1,74 @@
+{
+  "data_creation": "2023-10-03T14:23:00+02:00",
+  "date_modification": "2023-10-03T14:23:00+02:00",
+  "id_project": 6857021,
+  "Code_configurateur": "PLTRV",
+  "resume": {
+    "quantity": 1,
+    "totalPrice": 1550.0,
+    "totalPriceLowCharges": 1350.0,
+    "artCode": "2516801",
+    "details": [
+      {
+        "unitPrice": 0.0,
+        "detailLines": [
+          {
+            "unitPrice": 0.0,
+            "quantity": 1.0,
+            "totalPrice": 1250.0,
+            "designation": "Placard",
+            "detail": "Placard coulissant 3 portes miroir (H : 2400 x L : 2800)",
+            "cpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpSolution.wksPlTrv/FO/foSolution.FP/fpSolution",
+            "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpConfigurationPortes[1]",
+            "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+          }
+        ],
+        "quantity": 1,
+        "totalPrice": 1250.0,
+        "designation": "Solution placard",
+        "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpConfigurationPortes[1]",
+        "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+      }
+    ],
+    "productName": "PLACARD COULISSANT 3 PORTES MIROIR - PORTES CONFIGURATION 1"
+  },
+  "decompo": {
+    "quantity": 1,
+    "totalPrice": 2000.0,
+    "totalPriceLowCharges": 0.0,
+    "artCode": "6857021",
+    "details": [
+      {
+        "unitPrice": 0.0,
+        "detailLines": [
+          {
+            "unitPrice": 0.0,
+            "quantity": 1.0,
+            "totalPrice": 0.0,
+            "designation": "Montant total",
+            "detail": "plus-value accessoires",
+            "cpe": "",
+            "cpCpe": "",
+            "userType": { "name": null, "description": null }
+          },
+          {
+            "unitPrice": 0.0,
+            "quantity": 1.0,
+            "totalPrice": 1500.0,
+            "designation": "Placard",
+            "detail": "Placard coulissant 3 portes miroir (H : 2400 x L : 2800)",
+            "cpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpSolution.wksPlTrv/FO/foSolution.FP/fpSolution",
+            "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpConfigurationPortes[1]",
+            "userType": { "name": "DisplayOn", "description": "Affichage CP dans le menu IHM Nectar" }
+          }
+        ],
+        "quantity": 1,
+        "totalPrice": 1500.0,
+        "designation": "Sous-total placard",
+        "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpConfigurationPortes[1]",
+        "userType": { "name": "DisplayOn", "description": "Affichage CP dans le menu IHM Nectar" }
+      }
+    ],
+    "productName": "PLACARD COULISSANT 3 PORTES MIROIR - PORTES CONFIGURATION 1"
+  }
+}

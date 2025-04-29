@@ -1,0 +1,74 @@
+{
+  "data_creation": "2023-10-03T14:23:00+02:00",
+  "date_modification": "2023-10-03T14:23:00+02:00",
+  "id_project": 6857023,
+  "Code_configurateur": "PLTRV",
+  "resume": {
+    "quantity": 1,
+    "totalPrice": 1650.0,
+    "totalPriceLowCharges": 1450.0,
+    "artCode": "2516803",
+    "details": [
+      {
+        "unitPrice": 0.0,
+        "detailLines": [
+          {
+            "unitPrice": 0.0,
+            "quantity": 1.0,
+            "totalPrice": 1350.0,
+            "designation": "Placard",
+            "detail": "Placard battant 4 portes (H : 2100 x L : 1800)",
+            "cpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpSolution.wksPlTrv/FO/foSolution.FP/fpSolution",
+            "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpPoignee[3]",
+            "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+          }
+        ],
+        "quantity": 1,
+        "totalPrice": 1350.0,
+        "designation": "Solution placard",
+        "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpPoignee[3]",
+        "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+      }
+    ],
+    "productName": "PLACARD BATTANT 4 PORTES - POIGNEE CONFIGURATION 3"
+  },
+  "decompo": {
+    "quantity": 1,
+    "totalPrice": 2200.0,
+    "totalPriceLowCharges": 0.0,
+    "artCode": "6857023",
+    "details": [
+      {
+        "unitPrice": 0.0,
+        "detailLines": [
+          {
+            "unitPrice": 0.0,
+            "quantity": 1.0,
+            "totalPrice": 0.0,
+            "designation": "Montant total",
+            "detail": "plus-value accessoires",
+            "cpe": "",
+            "cpCpe": "",
+            "userType": { "name": null, "description": null }
+          },
+          {
+            "unitPrice": 0.0,
+            "quantity": 1.0,
+            "totalPrice": 1700.0,
+            "designation": "Placard",
+            "detail": "Placard battant 4 portes (H : 2100 x L : 1800)",
+            "cpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpSolution.wksPlTrv/FO/foSolution.FP/fpSolution",
+            "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpPoignee[3]",
+            "userType": { "name": "DisplayOn", "description": "Affichage CP dans le menu IHM Nectar" }
+          }
+        ],
+        "quantity": 1,
+        "totalPrice": 1700.0,
+        "designation": "Sous-total placard",
+        "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpPoignee[3]",
+        "userType": { "name": "DisplayOn", "description": "Affichage CP dans le menu IHM Nectar" }
+      }
+    ],
+    "productName": "PLACARD BATTANT 4 PORTES - POIGNEE CONFIGURATION 3"
+  }
+}

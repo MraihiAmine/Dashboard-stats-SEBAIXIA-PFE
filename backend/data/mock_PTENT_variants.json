@@ -1,0 +1,177 @@
+[
+  {
+    "data_creation": "2023-10-03T14:23:00+02:00",
+    "date_modification": "2023-10-03T14:23:00+02:00",
+    "id_project": 6857011,
+    "Code_configurateur": "PTENT",
+    "resume": {
+      "quantity": 1,
+      "totalPrice": 1300.0,
+      "totalPriceLowCharges": 1150.0,
+      "artCode": "2516701",
+      "details": [
+        {
+          "unitPrice": 0.0,
+          "detailLines": [
+            {
+              "unitPrice": 0.0,
+              "quantity": 1.0,
+              "totalPrice": 1000.0,
+              "designation": "Porte d'entrée",
+              "detail": "Porte d'entrée PVC Harmonie (H : 2150 x L : 900)",
+              "cpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpSolution.wksPtEnt/FO/foSolution.FP/fpSolution",
+              "cpCpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpConfigurationVitrage[1]",
+              "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+            }
+          ],
+          "quantity": 1,
+          "totalPrice": 1000.0,
+          "designation": "Solution porte d'entrée",
+          "cpCpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpConfigurationVitrage[1]",
+          "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+        }
+      ],
+      "productName": "PORTE D'ENTRÉE PVC HARMONIE - VITRAGE CONFIGURATION 1"
+    }
+  },
+  {
+    "data_creation": "2023-10-03T14:23:00+02:00",
+    "date_modification": "2023-10-03T14:23:00+02:00",
+    "id_project": 6857012,
+    "Code_configurateur": "PTENT",
+    "resume": {
+      "quantity": 1,
+      "totalPrice": 1350.0,
+      "totalPriceLowCharges": 1200.0,
+      "artCode": "2516702",
+      "details": [
+        {
+          "unitPrice": 0.0,
+          "detailLines": [
+            {
+              "unitPrice": 0.0,
+              "quantity": 1.0,
+              "totalPrice": 1050.0,
+              "designation": "Porte d'entrée",
+              "detail": "Porte d'entrée PVC Harmonie (H : 2200 x L : 950)",
+              "cpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpSolution.wksPtEnt/FO/foSolution.FP/fpSolution",
+              "cpCpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpSeuil[2]",
+              "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+            }
+          ],
+          "quantity": 1,
+          "totalPrice": 1050.0,
+          "designation": "Solution porte d'entrée",
+          "cpCpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpSeuil[2]",
+          "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+        }
+      ],
+      "productName": "PORTE D'ENTRÉE PVC HARMONIE - SEUIL CONFIGURATION 2"
+    }
+  },
+  {
+    "data_creation": "2023-10-03T14:23:00+02:00",
+    "date_modification": "2023-10-03T14:23:00+02:00",
+    "id_project": 6857013,
+    "Code_configurateur": "PTENT",
+    "resume": {
+      "quantity": 1,
+      "totalPrice": 1400.0,
+      "totalPriceLowCharges": 1250.0,
+      "artCode": "2516703",
+      "details": [
+        {
+          "unitPrice": 0.0,
+          "detailLines": [
+            {
+              "unitPrice": 0.0,
+              "quantity": 1.0,
+              "totalPrice": 1100.0,
+              "designation": "Porte d'entrée",
+              "detail": "Porte d'entrée PVC Harmonie (H : 2250 x L : 1000)",
+              "cpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpSolution.wksPtEnt/FO/foSolution.FP/fpSolution",
+              "cpCpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpPoignee[3]",
+              "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+            }
+          ],
+          "quantity": 1,
+          "totalPrice": 1100.0,
+          "designation": "Solution porte d'entrée",
+          "cpCpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpPoignee[3]",
+          "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+        }
+      ],
+      "productName": "PORTE D'ENTRÉE PVC HARMONIE - POIGNEE CONFIGURATION 3"
+    }
+  },
+  {
+    "data_creation": "2023-10-03T14:23:00+02:00",
+    "date_modification": "2023-10-03T14:23:00+02:00",
+    "id_project": 6857014,
+    "Code_configurateur": "PTENT",
+    "resume": {
+      "quantity": 1,
+      "totalPrice": 1450.0,
+      "totalPriceLowCharges": 1300.0,
+      "artCode": "2516704",
+      "details": [
+        {
+          "unitPrice": 0.0,
+          "detailLines": [
+            {
+              "unitPrice": 0.0,
+              "quantity": 1.0,
+              "totalPrice": 1150.0,
+              "designation": "Porte d'entrée",
+              "detail": "Porte d'entrée PVC Harmonie (H : 2300 x L : 1050)",
+              "cpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpSolution.wksPtEnt/FO/foSolution.FP/fpSolution",
+              "cpCpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpColoris[4]",
+              "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+            }
+          ],
+          "quantity": 1,
+          "totalPrice": 1150.0,
+          "designation": "Solution porte d'entrée",
+          "cpCpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpColoris[4]",
+          "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+        }
+      ],
+      "productName": "PORTE D'ENTRÉE PVC HARMONIE - COLORIS CONFIGURATION 4"
+    }
+  },
+  {
+    "data_creation": "2023-10-03T14:23:00+02:00",
+    "date_modification": "2023-10-03T14:23:00+02:00",
+    "id_project": 6857015,
+    "Code_configurateur": "PTENT",
+    "resume": {
+      "quantity": 1,
+      "totalPrice": 1500.0,
+      "totalPriceLowCharges": 1350.0,
+      "artCode": "2516705",
+      "details": [
+        {
+          "unitPrice": 0.0,
+          "detailLines": [
+            {
+              "unitPrice": 0.0,
+              "quantity": 1.0,
+              "totalPrice": 1200.0,
+              "designation": "Porte d'entrée",
+              "detail": "Porte d'entrée PVC Harmonie (H : 2350 x L : 1100)",
+              "cpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpSolution.wksPtEnt/FO/foSolution.FP/fpSolution",
+              "cpCpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpAccessoires[5]",
+              "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+            }
+          ],
+          "quantity": 1,
+          "totalPrice": 1200.0,
+          "designation": "Solution porte d'entrée",
+          "cpCpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpAccessoires[5]",
+          "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+        }
+      ],
+      "productName": "PORTE D'ENTRÉE PVC HARMONIE - ACCESSOIRES CONFIGURATION 5"
+    }
+  }
+]

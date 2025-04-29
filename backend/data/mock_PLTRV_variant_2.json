@@ -1,0 +1,74 @@
+{
+  "data_creation": "2023-10-03T14:23:00+02:00",
+  "date_modification": "2023-10-03T14:23:00+02:00",
+  "id_project": 6857022,
+  "Code_configurateur": "PLTRV",
+  "resume": {
+    "quantity": 1,
+    "totalPrice": 1600.0,
+    "totalPriceLowCharges": 1400.0,
+    "artCode": "2516802",
+    "details": [
+      {
+        "unitPrice": 0.0,
+        "detailLines": [
+          {
+            "unitPrice": 0.0,
+            "quantity": 1.0,
+            "totalPrice": 1300.0,
+            "designation": "Placard",
+            "detail": "Placard coulissant 2 portes bois (H : 2200 x L : 2000)",
+            "cpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpSolution.wksPlTrv/FO/foSolution.FP/fpSolution",
+            "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpConfigurationInterieur[2]",
+            "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+          }
+        ],
+        "quantity": 1,
+        "totalPrice": 1300.0,
+        "designation": "Solution placard",
+        "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpConfigurationInterieur[2]",
+        "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+      }
+    ],
+    "productName": "PLACARD COULISSANT 2 PORTES BOIS - INTÉRIEUR CONFIGURATION 2"
+  },
+  "decompo": {
+    "quantity": 1,
+    "totalPrice": 2100.0,
+    "totalPriceLowCharges": 0.0,
+    "artCode": "6857022",
+    "details": [
+      {
+        "unitPrice": 0.0,
+        "detailLines": [
+          {
+            "unitPrice": 0.0,
+            "quantity": 1.0,
+            "totalPrice": 0.0,
+            "designation": "Montant total",
+            "detail": "plus-value accessoires",
+            "cpe": "",
+            "cpCpe": "",
+            "userType": { "name": null, "description": null }
+          },
+          {
+            "unitPrice": 0.0,
+            "quantity": 1.0,
+            "totalPrice": 1600.0,
+            "designation": "Placard",
+            "detail": "Placard coulissant 2 portes bois (H : 2200 x L : 2000)",
+            "cpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpSolution.wksPlTrv/FO/foSolution.FP/fpSolution",
+            "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpConfigurationInterieur[2]",
+            "userType": { "name": "DisplayOn", "description": "Affichage CP dans le menu IHM Nectar" }
+          }
+        ],
+        "quantity": 1,
+        "totalPrice": 1600.0,
+        "designation": "Sous-total placard",
+        "cpCpe": "CPE.wksPlTrv/CP/cpGammePlacards.wksPlTrv/CP/cpPlacard.wksPlTrv/CP/cpCanalCom.wksPlTrv/CP/cpConfigurationInterieur[2]",
+        "userType": { "name": "DisplayOn", "description": "Affichage CP dans le menu IHM Nectar" }
+      }
+    ],
+    "productName": "PLACARD COULISSANT 2 PORTES BOIS - INTÉRIEUR CONFIGURATION 2"
+  }
+}

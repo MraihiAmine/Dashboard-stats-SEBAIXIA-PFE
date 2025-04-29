@@ -1,0 +1,74 @@
+{
+  "data_creation": "2023-10-03T14:23:00+02:00",
+  "date_modification": "2023-10-03T14:23:00+02:00",
+  "id_project": 6857012,
+  "Code_configurateur": "PTENT",
+  "resume": {
+    "quantity": 1,
+    "totalPrice": 1350.0,
+    "totalPriceLowCharges": 1200.0,
+    "artCode": "2516702",
+    "details": [
+      {
+        "unitPrice": 0.0,
+        "detailLines": [
+          {
+            "unitPrice": 0.0,
+            "quantity": 1.0,
+            "totalPrice": 1050.0,
+            "designation": "Porte d'entrée",
+            "detail": "Porte d'entrée PVC Harmonie (H : 2200 x L : 950)",
+            "cpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpSolution.wksPtEnt/FO/foSolution.FP/fpSolution",
+            "cpCpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpSeuil[2]",
+            "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+          }
+        ],
+        "quantity": 1,
+        "totalPrice": 1050.0,
+        "designation": "Solution porte d'entrée",
+        "cpCpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpSeuil[2]",
+        "userType": { "name": "DisplayOn", "description": "DisplayOn" }
+      }
+    ],
+    "productName": "PORTE D'ENTRÉE PVC HARMONIE - SEUIL CONFIGURATION 2"
+  },
+  "decompo": {
+    "quantity": 1,
+    "totalPrice": 1850.0,
+    "totalPriceLowCharges": 0.0,
+    "artCode": "6857012",
+    "details": [
+      {
+        "unitPrice": 0.0,
+        "detailLines": [
+          {
+            "unitPrice": 0.0,
+            "quantity": 1.0,
+            "totalPrice": 0.0,
+            "designation": "Montant total",
+            "detail": "plus-value accessoires",
+            "cpe": "",
+            "cpCpe": "",
+            "userType": { "name": null, "description": null }
+          },
+          {
+            "unitPrice": 0.0,
+            "quantity": 1.0,
+            "totalPrice": 1350.0,
+            "designation": "Porte d'entrée",
+            "detail": "Porte d'entrée PVC Harmonie (H : 2200 x L : 950)",
+            "cpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpSolution.wksPtEnt/FO/foSolution.FP/fpSolution",
+            "cpCpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpSeuil[2]",
+            "userType": { "name": "DisplayOn", "description": "Affichage CP dans le menu IHM Nectar" }
+          }
+        ],
+        "quantity": 1,
+        "totalPrice": 1350.0,
+        "designation": "Sous-total porte d'entrée",
+        "cpCpe": "CPE.wksPtEnt/CP/cpGammePortes.wksPtEnt/CP/cpPorteEntree.wksPtEnt/CP/cpCanalCom.wksPtEnt/CP/cpSeuil[2]",
+        "userType": { "name": "DisplayOn", "description": "Affichage CP dans le menu IHM Nectar" }
+      }
+    ],
+    "productName": "PORTE D'ENTRÉE PVC HARMONIE - SEUIL CONFIGURATION 2"
+  }
+}

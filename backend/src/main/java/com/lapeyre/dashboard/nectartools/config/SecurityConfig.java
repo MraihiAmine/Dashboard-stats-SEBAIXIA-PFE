@@ -43,6 +43,7 @@ public class SecurityConfig {
                     "/api/auth/**",
                     "/api/auth/register", // Permit all for register endpoint
                     "/actuator/**",
+                    "/api/project-lines/**",
                     "/h2-console/**",
                     "/api/users/**",
                     "/api/dashboard-users/**"
