@@ -1,0 +1,98 @@
+<div class="login-container">
+    <div class="login-header">
+        <img src="assets/images/lapeyre-logo.jpg" alt="Lapeyre Logo" class="logo-header">
+        <h1>Lapeyre Dashboard</h1>
+    </div>
+    
+    <div class="login-form">
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input 
+                  type="text" 
+                  id="username" 
+                  formControlName="username" 
+                  class="form-control" 
+                  placeholder="Enter your username"
+                  [ngClass]="{'is-invalid': registerForm.get('username')?.invalid && registerForm.get('username')?.touched}"
+                >
+                <div class="invalid-feedback" *ngIf="registerForm.get('username')?.invalid && registerForm.get('username')?.touched">
+                  {{ getErrorMessage('username') }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  formControlName="email" 
+                  class="form-control" 
+                  placeholder="Enter your email"
+                  [ngClass]="{'is-invalid': registerForm.get('email')?.invalid && registerForm.get('email')?.touched}"
+                >
+                <div class="invalid-feedback" *ngIf="registerForm.get('email')?.invalid && registerForm.get('email')?.touched">
+                  {{ getErrorMessage('email') }}
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-group">
+                    <input 
+                      type="password" 
+                      id="password" 
+                      formControlName="password" 
+                      class="form-control" 
+                      placeholder="Enter your password"
+                      [ngClass]="{'is-invalid': registerForm.get('password')?.invalid && registerForm.get('password')?.touched}"
+                    >
+                    <button type="button" class="btn btn-outline-secondary" (click)="togglePasswordVisibility()">
+                      <i class="fas" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+                    </button>
+                </div>
+                <div class="invalid-feedback" *ngIf="registerForm.get('password')?.invalid && registerForm.get('password')?.touched">
+                  {{ getErrorMessage('password') }}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <div class="input-group">
+                    <input 
+                      type="password" 
+                      id="confirmPassword" 
+                      formControlName="confirmPassword" 
+                      class="form-control" 
+                      placeholder="Confirm your password"
+                      [ngClass]="{'is-invalid': registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched}"
+                    >
+                    <button type="button" class="btn btn-outline-secondary" (click)="toggleConfirmPasswordVisibility()">
+                      <i class="fas" [ngClass]="showConfirmPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+                    </button>
+                </div>
+                <div class="invalid-feedback" *ngIf="registerForm.get('confirmPassword')?.invalid && registerForm.get('confirmPassword')?.touched">
+                  {{ getErrorMessage('confirmPassword') }}
+                </div>
+            </div>
+
+            <div class="error-message" *ngIf="errorMessage">
+                {{ errorMessage }}
+            </div>
+            
+            <button type="submit" class="btn-login" [disabled]="registerForm.invalid || isLoading">
+                {{ isLoading ? 'Registering...' : 'Register' }}
+            </button>
+            
+            <div class="divider">OR</div>
+            
+            <div class="register-link">
+                Already have an account? <a routerLink="/login">Login</a>
+            </div>
+        </form>
+        
+        <div class="form-footer">
+            <p>Secure registration with SSL encryption</p>
+        </div>
+    </div>
+</div> 
