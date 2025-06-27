@@ -1,0 +1,171 @@
+package com.lapeyre.dashboard.nectartools.service;
+
+import com.lapeyre.dashboard.nectartools.dto.AuthenticationRequest;
+import com.lapeyre.dashboard.nectartools.dto.AuthenticationResponse;
+import com.lapeyre.dashboard.nectartools.dto.RegisterRequest;
+import com.lapeyre.dashboard.nectartools.model.Role;
+import com.lapeyre.dashboard.nectartools.model.User;
+import com.lapeyre.dashboard.nectartools.repository.UserRepository;
+import com.lapeyre.dashboard.nectartools.security.JwtService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+import lombok.extern.slf4j.Slf4j;
+
+@Service
+@RequiredArgsConstructor
+@Slf4j
+public class AuthenticationService {
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
+    private final AuthenticationManager authenticationManager;
+
+    public AuthenticationResponse register(RegisterRequest request) {
+        log.debug("Processing registration request for email: {}", request.getEmail());
+        
+        try {
+            // Validate email format
+            if (!request.getEmail().matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
+                log.error("Invalid email format: {}", request.getEmail());
+                throw new IllegalArgumentException("Invalid email format");
+            }
+
+            // Check if user already exists
+            if (userRepository.findByEmail(request.getEmail()).isPresent()) {
+                log.error("User with email {} already exists", request.getEmail());
+                throw new IllegalArgumentException("User with this email already exists");
+            }
+
+            if (userRepository.findByUsername(request.getUsername()).isPresent()) {
+                log.error("User with username {} already exists", request.getUsername());
+                throw new IllegalArgumentException("User with this username already exists");
+        }
+
+            // Create new user with explicit enabled status
+        var user = User.builder()
+                .username(request.getUsername())
+                .email(request.getEmail())
+                .password(passwordEncoder.encode(request.getPassword()))
+                .role(Role.USER)
+                    .enabled(true)  // Explicitly set enabled to true
+                .build();
+
+            log.debug("Saving new user with enabled status: {}", user.isEnabled());
+        userRepository.save(user);
+            
+        var jwtToken = jwtService.generateToken(user);
+            log.debug("Generated JWT token for new user");
+            
+        return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
+        } catch (Exception e) {
+            log.error("Registration failed: {}", e.getMessage());
+            throw new RuntimeException("Registration failed: " + e.getMessage());
+        }
+    }
+
+    public AuthenticationResponse authenticate(AuthenticationRequest request) {
+        log.debug("Attempting authentication for email: {}", request.getEmail());
+        
+        try {
+            // First check if user exists
+            User user = userRepository.findByEmail(request.getEmail())
+                    .orElseThrow(() -> {
+                        log.error("User not found with email: {}", request.getEmail());
+                        return new UsernameNotFoundException("Invalid email or password");
+                    });
+
+            log.debug("User found in database - enabled: {}, role: {}", user.isEnabled(), user.getRole());
+
+            // Attempt authentication
+            try {
+                authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                        request.getEmail(),
+                        request.getPassword()
+                    )
+                );
+            } catch (BadCredentialsException e) {
+                log.error("Invalid password for user: {}", request.getEmail());
+                throw new RuntimeException("Invalid email or password");
+            } catch (DisabledException e) {
+                log.error("User account is disabled: {}", request.getEmail());
+                throw new RuntimeException("User account is disabled");
+            }
+
+            log.debug("Authentication successful for email: {}", request.getEmail());
+            
+            var jwtToken = jwtService.generateToken(user);
+            log.debug("JWT token generated successfully");
+            
+            return AuthenticationResponse.builder()
+                .token(jwtToken)
+                .build();
+                
+        } catch (UsernameNotFoundException e) {
+            log.error("User not found: {}", e.getMessage());
+            throw new RuntimeException("Invalid email or password");
+        } catch (Exception e) {
+            log.error("Authentication failed - Unexpected error: {}", e.getMessage());
+            throw new RuntimeException("Authentication failed: " + e.getMessage());
+        }
+    }
+
+    public AuthenticationResponse handleGoogleAuth(String email, String username) {
+        log.debug("Processing Google authentication for email: {}", email);
+        
+        try {
+            // Check if user exists
+            User user = userRepository.findByEmail(email)
+                    .orElseGet(() -> {
+                        // Generate a secure random password for Google users
+                        String randomPassword = generateSecureRandomPassword();
+                        log.debug("Creating new user for Google authentication");
+                        
+                        // Create new user
+                        User newUser = User.builder()
+                                .username(username)
+                                .email(email)
+                                .password(passwordEncoder.encode(randomPassword))
+                                .role(Role.USER)
+                                .enabled(true)
+                                .build();
+                        
+                        return userRepository.save(newUser);
+                    });
+
+            // Generate token
+            var jwtToken = jwtService.generateToken(user);
+            log.debug("Generated JWT token for Google user");
+            
+            return AuthenticationResponse.builder()
+                    .token(jwtToken)
+                    .build();
+                    
+        } catch (Exception e) {
+            log.error("Google authentication failed: {}", e.getMessage());
+            throw new RuntimeException("Google authentication failed: " + e.getMessage());
+        }
+    }
+
+    private String generateSecureRandomPassword() {
+        String chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+";
+        StringBuilder password = new StringBuilder();
+        java.security.SecureRandom random = new java.security.SecureRandom();
+        
+        for (int i = 0; i < 16; i++) {
+            int index = random.nextInt(chars.length());
+            password.append(chars.charAt(index));
+        }
+        
+        return password.toString();
+    }
+} 

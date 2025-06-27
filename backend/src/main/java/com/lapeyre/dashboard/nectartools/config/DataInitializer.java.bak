@@ -1,0 +1,29 @@
+package com.lapeyre.dashboard.nectartools.config;
+
+import com.lapeyre.dashboard.nectartools.model.Role;
+import com.lapeyre.dashboard.nectartools.model.User;
+import com.lapeyre.dashboard.nectartools.repository.UserRepository;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+@Configuration
+public class DataInitializer {
+
+    @Bean
+    CommandLineRunner initData(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+        return args -> {
+            // Check if user already exists
+            if (userRepository.findByEmail("arouahkimi@gmail.com").isEmpty()) {
+                User user = new User();
+                user.setEmail("arouahkimi@gmail.com");
+                user.setPassword(passwordEncoder.encode("password123"));
+                user.setUsername("aroua");
+                user.setEnabled(true);
+                user.setRole(Role.ADMIN);
+                userRepository.save(user);
+            }
+        };
+    }
+} 
