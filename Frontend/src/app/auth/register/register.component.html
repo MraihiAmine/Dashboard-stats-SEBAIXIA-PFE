@@ -80,9 +80,15 @@
                 {{ errorMessage }}
             </div>
             
-            <button type="submit" class="btn-login" [disabled]="registerForm.invalid || isLoading">
-                {{ isLoading ? 'Registering...' : 'Register' }}
-            </button>
+<button
+  mat-raised-button
+  color="primary"
+  type="submit"
+  [disabled]="registerForm.pending || registerForm.invalid || isLoading">
+  {{ isLoading ? 'Registering...' : 'Register' }}
+</button>
+
+
             
             <div class="divider">OR</div>
             

@@ -39,11 +39,18 @@ public class SecurityConfig {
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .csrf(AbstractHttpConfigurer::disable)
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/auth/**", "/actuator/**", "/h2-console/**", "/api/users/**", "/api/dashboard-users/**").permitAll()
-            .anyRequest().authenticated()
+                .requestMatchers(
+                    "/api/auth/**",
+                    "/api/auth/register", // Permit all for register endpoint
+                    "/actuator/**",
+                    "/h2-console/**",
+                    "/api/users/**",
+                    "/api/dashboard-users/**"
+                ).permitAll()
+                .anyRequest().authenticated()
             )
             .sessionManagement(session -> session
-            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
             )
             .authenticationProvider(authenticationProvider())
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
