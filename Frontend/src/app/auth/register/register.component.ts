@@ -37,8 +37,7 @@ export class RegisterComponent {
       ]],
       password: ['', [
         Validators.required,
-        Validators.minLength(6),
-        Validators.pattern(/^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$/)
+        Validators.minLength(6)
       ]],
       confirmPassword: ['', [Validators.required]]
     }, {
@@ -133,7 +132,7 @@ export class RegisterComponent {
         case 'email':
           return 'Please provide a valid email address';
         case 'password':
-          return 'Password must contain at least one digit, one lowercase letter, one uppercase letter, and one special character';
+          return 'Password must be at least 6 characters long';
         default:
           return 'Invalid format';
       }

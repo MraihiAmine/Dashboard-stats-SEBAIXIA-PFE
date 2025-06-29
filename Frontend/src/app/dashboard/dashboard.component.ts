@@ -7,6 +7,7 @@ import { AuthService } from '../core/auth.service';
 import { CommonModule } from '@angular/common';               
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../services/user.service';
+import { ProductApiService, ProductStatistics, InventoryStatus, SalesTrends, CategoryPerformance, ProductLifecycle, ProfitabilityMatrix, SeasonalityAnalysis } from '../services/product-api.service';
 import { User, CreateUserRequest, UpdateUserRequest } from '../types/user.interface';
 import { Subject, takeUntil } from 'rxjs';
 
@@ -21,7 +22,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   email: string = '';
   lastLoginDate: string = new Date().toLocaleDateString();
   isRefreshing: boolean = false;
-  viewMode: 'overview' | 'detailed' = 'overview';
+  viewMode: 'overview' | 'detailed' | 'productAnalytics' = 'overview';
   unreadNotifications: number = 3;
   
   // KPI Metrics
@@ -378,34 +379,36 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
   };
 
-  expandedChart: 'sales' | 'products' | 'regional' | 'channel' | null = null;
+  expandedChart: string | null = null;
+  isChartLoading = false;
+  showModal = false;
 
   expandedChartOptions: ChartConfiguration['options'] = {
     responsive: true,
     maintainAspectRatio: false,
     animation: {
-      duration: 2000,
-      easing: 'easeInOutQuart'
+      duration: 500,
+      easing: 'easeInOutQuad'
     },
     plugins: {
       legend: {
         position: 'top',
         labels: {
           usePointStyle: true,
-          padding: 20,
+          padding: 15,
           font: {
-            size: 14
+            size: 12
           }
         }
       },
       tooltip: {
-        backgroundColor: 'rgba(159, 176, 245, 0.9)',
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
         titleColor: '#FFFFFF',
         bodyColor: '#FFFFFF',
-        borderColor: '#7B8FD4',
+        borderColor: '#333',
         borderWidth: 1,
-        padding: 12,
-        boxPadding: 6,
+        padding: 8,
+        boxPadding: 4,
         usePointStyle: true
       }
     },
@@ -479,6 +482,85 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
   };
 
+  // Performance Chart Data
+  performanceData: ChartData<'bar'> = {
+    labels: ['API Response', 'Database Query', 'Memory Usage', 'CPU Usage', 'Disk I/O', 'Network Latency'],
+    datasets: [
+      {
+        label: 'Response Time (ms)',
+        data: [45, 120, 78, 65, 95, 32],
+        backgroundColor: [
+          '#003366',
+          '#e30613',
+          '#003366',
+          '#e30613',
+          '#003366',
+          '#e30613'
+        ]
+      }
+    ]
+  };
+
+  performanceOptions: ChartConfiguration['options'] = {
+    responsive: true,
+    maintainAspectRatio: false,
+    animation: {
+      duration: 2000,
+      easing: 'easeInOutQuart'
+    },
+    plugins: {
+      legend: {
+        display: false
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 51, 102, 0.9)',
+        titleColor: 'white',
+        bodyColor: 'white',
+        borderColor: '#e30613',
+        borderWidth: 1,
+        padding: 12,
+        boxPadding: 6,
+        callbacks: {
+          label: function(this: TooltipModel<'bar'>, tooltipItem: TooltipItem<'bar'>) {
+            const value = tooltipItem.raw as number;
+            return 'Response Time: ' + value + ' ms';
+          }
+        }
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: {
+          color: 'rgba(0, 51, 102, 0.1)'
+        },
+        ticks: {
+          callback: function(value: number | string) {
+            if (typeof value === 'number') {
+              return value + ' ms';
+            }
+            return value;
+          }
+        }
+      },
+      x: {
+        grid: {
+          display: false
+        }
+      }
+    },
+    interaction: {
+      mode: 'nearest',
+      axis: 'x',
+      intersect: false
+    },
+    elements: {
+      bar: {
+        borderRadius: 4
+      }
+    }
+  };
+
   recentLogins: User[] = [];
   recentRegistrations: User[] = [];
 
@@ -486,7 +568,433 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   showRoleDistributionTable = false;
 
-  constructor(private authService: AuthService, private router: Router, private userService: UserService) {
+  showUserDistributionChart = false;
+
+  // New toggle properties
+  showSystemHealth = false;
+  showEnhancedActivity = false;
+  showTestChart = false;
+
+  // System Health Data
+  systemHealth = {
+    api: {
+      status: 'healthy',
+      responseTime: 45
+    },
+    database: {
+      status: 'healthy',
+      connections: 12
+    },
+    server: {
+      status: 'healthy',
+      cpu: 23
+    }
+  };
+
+  // Enhanced Activity Feed
+  activityFilter = 'all';
+  activityDate = '';
+  allActivities = [
+    {
+      type: 'login',
+      title: 'User Login',
+      description: 'John Doe logged in successfully',
+      user: 'John Doe',
+      timestamp: new Date(Date.now() - 1000 * 60 * 5) // 5 minutes ago
+    },
+    {
+      type: 'registration',
+      title: 'New User Registration',
+      description: 'Jane Smith created a new account',
+      user: 'Jane Smith',
+      timestamp: new Date(Date.now() - 1000 * 60 * 15) // 15 minutes ago
+    },
+    {
+      type: 'update',
+      title: 'Profile Updated',
+      description: 'Mike Johnson updated their profile information',
+      user: 'Mike Johnson',
+      timestamp: new Date(Date.now() - 1000 * 60 * 30) // 30 minutes ago
+    },
+    {
+      type: 'delete',
+      title: 'User Deleted',
+      description: 'Admin deleted user account',
+      user: 'Admin',
+      timestamp: new Date(Date.now() - 1000 * 60 * 60) // 1 hour ago
+    },
+    {
+      type: 'login',
+      title: 'User Login',
+      description: 'Sarah Wilson logged in successfully',
+      user: 'Sarah Wilson',
+      timestamp: new Date(Date.now() - 1000 * 60 * 90) // 1.5 hours ago
+    },
+    {
+      type: 'update',
+      title: 'Settings Changed',
+      description: 'David Brown updated system settings',
+      user: 'David Brown',
+      timestamp: new Date(Date.now() - 1000 * 60 * 120) // 2 hours ago
+    },
+    {
+      type: 'registration',
+      title: 'New User Registration',
+      description: 'Emily Davis created a new account',
+      user: 'Emily Davis',
+      timestamp: new Date(Date.now() - 1000 * 60 * 180) // 3 hours ago
+    },
+    {
+      type: 'login',
+      title: 'User Login',
+      description: 'Robert Taylor logged in successfully',
+      user: 'Robert Taylor',
+      timestamp: new Date(Date.now() - 1000 * 60 * 240) // 4 hours ago
+    },
+    {
+      type: 'update',
+      title: 'Profile Updated',
+      description: 'Lisa Anderson updated their profile information',
+      user: 'Lisa Anderson',
+      timestamp: new Date(Date.now() - 1000 * 60 * 300) // 5 hours ago
+    },
+    {
+      type: 'delete',
+      title: 'User Deleted',
+      description: 'Admin deleted inactive user account',
+      user: 'Admin',
+      timestamp: new Date(Date.now() - 1000 * 60 * 360) // 6 hours ago
+    },
+    {
+      type: 'login',
+      title: 'User Login',
+      description: 'Michael Clark logged in successfully',
+      user: 'Michael Clark',
+      timestamp: new Date(Date.now() - 1000 * 60 * 420) // 7 hours ago
+    },
+    {
+      type: 'registration',
+      title: 'New User Registration',
+      description: 'Amanda White created a new account',
+      user: 'Amanda White',
+      timestamp: new Date(Date.now() - 1000 * 60 * 480) // 8 hours ago
+    },
+    {
+      type: 'update',
+      title: 'Settings Changed',
+      description: 'Kevin Martinez updated system preferences',
+      user: 'Kevin Martinez',
+      timestamp: new Date(Date.now() - 1000 * 60 * 540) // 9 hours ago
+    },
+    {
+      type: 'login',
+      title: 'User Login',
+      description: 'Jennifer Lee logged in successfully',
+      user: 'Jennifer Lee',
+      timestamp: new Date(Date.now() - 1000 * 60 * 600) // 10 hours ago
+    },
+    {
+      type: 'update',
+      title: 'Profile Updated',
+      description: 'Thomas Garcia updated their profile information',
+      user: 'Thomas Garcia',
+      timestamp: new Date(Date.now() - 1000 * 60 * 660) // 11 hours ago
+    }
+  ];
+
+  filteredActivities = [...this.allActivities];
+
+  // New product analytics data
+  totalProducts: number = 0;
+  productRevenue: number = 0;
+  lowStockCount: number = 0;
+  outOfStockCount: number = 0;
+  productGrowth: number = 8.5;
+  productRevenueGrowth: number = 12.3;
+  lowStockChange: number = -5.2;
+  outOfStockChange: number = -15.8;
+  productTrendsChartType: ChartType = 'line';
+  inventoryData: ChartData<'doughnut'> = {
+    labels: ['In Stock', 'Low Stock', 'Out of Stock'],
+    datasets: [{
+      data: [0, 0, 0],
+      backgroundColor: ['#28a745', '#ffc107', '#e30613'],
+      borderWidth: 2,
+      borderColor: '#ffffff'
+    }]
+  };
+  productTrendsData: ChartData<'line'> = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    datasets: [
+      {
+        label: 'Sales Trend',
+        data: [0, 0, 0, 0, 0, 0],
+        borderColor: '#003366',
+        backgroundColor: 'rgba(0, 51, 102, 0.1)',
+        fill: true,
+        tension: 0.4
+      }
+    ]
+  };
+  categoryPerformanceData: ChartData<'scatter'> = {
+    datasets: [
+      {
+        label: 'Category Performance',
+        data: [{ x: 0, y: 0 }],
+        backgroundColor: '#003366',
+        pointRadius: 8,
+        pointHoverRadius: 12
+      }
+    ]
+  };
+  productLifecycleData: ChartData<'radar'> = {
+    labels: ['Introduction', 'Growth', 'Maturity', 'Decline', 'Innovation', 'Market Share'],
+    datasets: [
+      {
+        label: 'Product Lifecycle',
+        data: [0, 0, 0, 0, 0, 0],
+        borderColor: '#003366',
+        backgroundColor: 'rgba(0, 51, 102, 0.2)',
+        borderWidth: 2,
+        pointBackgroundColor: '#003366',
+        pointBorderColor: '#ffffff',
+        pointHoverBackgroundColor: '#ffffff',
+        pointHoverBorderColor: '#003366'
+      }
+    ]
+  };
+  profitabilityMatrixData: ChartData<'bubble'> = {
+    datasets: [
+      {
+        label: 'Profitability Matrix',
+        data: [{ x: 0, y: 0, r: 0 }],
+        backgroundColor: '#003366',
+        borderColor: '#003366',
+        borderWidth: 1
+      }
+    ]
+  };
+  seasonalityData: ChartData<'line'> = {
+    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+    datasets: [
+      {
+        label: 'Seasonality',
+        data: [0, 0, 0, 0, 0, 0],
+        borderColor: '#003366',
+        backgroundColor: 'rgba(0, 51, 102, 0.1)',
+        fill: true,
+        tension: 0.4
+      }
+    ]
+  };
+
+  // Chart options for product analytics
+  inventoryOptions: ChartConfiguration['options'] = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          usePointStyle: true,
+          padding: 15,
+          font: {
+            size: 12
+          }
+        }
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        titleColor: 'white',
+        bodyColor: 'white',
+        padding: 12,
+        callbacks: {
+          label: function(context: any) {
+            const total = context.dataset.data.reduce((a: number, b: number) => a + b, 0);
+            const percentage = ((context.parsed / total) * 100).toFixed(1);
+            return `${context.label}: ${context.parsed} (${percentage}%)`;
+          }
+        }
+      }
+    }
+  };
+
+  productTrendsOptions: ChartConfiguration['options'] = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'top',
+        labels: {
+          usePointStyle: true,
+          padding: 15
+        }
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        titleColor: 'white',
+        bodyColor: 'white',
+        padding: 12
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: {
+          color: 'rgba(0, 0, 0, 0.1)'
+        }
+      }
+    }
+  };
+
+  categoryPerformanceOptions: ChartConfiguration['options'] = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'top',
+        labels: {
+          usePointStyle: true,
+          padding: 15
+        }
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        titleColor: 'white',
+        bodyColor: 'white',
+        padding: 12,
+        callbacks: {
+          label: function(context: any) {
+            return `${context.dataset.label}: Revenue €${context.parsed.x.toLocaleString()}, Growth ${context.parsed.y}%`;
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Revenue (€)'
+        },
+        grid: {
+          color: 'rgba(0, 0, 0, 0.1)'
+        }
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Growth Rate (%)'
+        },
+        grid: {
+          color: 'rgba(0, 0, 0, 0.1)'
+        }
+      }
+    }
+  };
+
+  productLifecycleOptions: ChartConfiguration['options'] = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'top',
+        labels: {
+          usePointStyle: true,
+          padding: 15
+        }
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        titleColor: 'white',
+        bodyColor: 'white',
+        padding: 12
+      }
+    },
+    scales: {
+      r: {
+        beginAtZero: true,
+        max: 100,
+        ticks: {
+          stepSize: 20
+        }
+      }
+    }
+  };
+
+  profitabilityMatrixOptions: ChartConfiguration['options'] = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'top',
+        labels: {
+          usePointStyle: true,
+          padding: 15
+        }
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        titleColor: 'white',
+        bodyColor: 'white',
+        padding: 12,
+        callbacks: {
+          label: function(context: any) {
+            return `${context.dataset.label}: Revenue €${context.parsed.x.toLocaleString()}, Margin ${context.parsed.y}%, Size ${context.parsed.r}`;
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        title: {
+          display: true,
+          text: 'Revenue (€)'
+        },
+        grid: {
+          color: 'rgba(0, 0, 0, 0.1)'
+        }
+      },
+      y: {
+        title: {
+          display: true,
+          text: 'Margin (%)'
+        },
+        grid: {
+          color: 'rgba(0, 0, 0, 0.1)'
+        }
+      }
+    }
+  };
+
+  seasonalityOptions: ChartConfiguration['options'] = {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'top',
+        labels: {
+          usePointStyle: true,
+          padding: 15
+        }
+      },
+      tooltip: {
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+        titleColor: 'white',
+        bodyColor: 'white',
+        padding: 12
+      }
+    },
+    scales: {
+      y: {
+        beginAtZero: true,
+        grid: {
+          color: 'rgba(0, 0, 0, 0.1)'
+        }
+      }
+    }
+  };
+
+  constructor(private authService: AuthService, private router: Router, private userService: UserService, private productApiService: ProductApiService) {
     this.authService.getCurrentUser().subscribe(user => {
       this.email = user?.email || '';
     });
@@ -503,6 +1011,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.loadUserStats();
     this.loadUserRoleDistribution();
     this.loadRecentActivity();
+    this.loadProductAnalytics();
   }
 
   ngOnDestroy(): void {
@@ -555,11 +1064,13 @@ export class DashboardComponent implements OnInit, OnDestroy {
     // Handle region metric change
   }
 
-  toggleChartType(chart: 'sales' | 'channel'): void {
+  toggleChartType(chart: 'sales' | 'channel' | 'productTrends'): void {
     if (chart === 'sales') {
       this.salesChartType = this.salesChartType === 'line' ? 'bar' : 'line';
-    } else {
-      this.channelChartType = this.channelChartType === 'bar' ? 'line' : 'bar';
+    } else if (chart === 'channel') {
+      this.channelChartType = this.channelChartType === 'line' ? 'bar' : 'line';
+    } else if (chart === 'productTrends') {
+      this.productTrendsChartType = this.productTrendsChartType === 'line' ? 'bar' : 'line';
     }
   }
 
@@ -581,9 +1092,23 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }, 1000);
   }
 
-  setViewMode(mode: 'overview' | 'detailed'): void {
+  setViewMode(mode: 'overview' | 'detailed' | 'productAnalytics'): void {
+    console.log('=== SETTING VIEW MODE ===');
+    console.log('Previous view mode:', this.viewMode);
+    console.log('New view mode:', mode);
     this.viewMode = mode;
-    // Implement view mode change logic
+    console.log('Current view mode after setting:', this.viewMode);
+    
+    // Force chart updates when switching to Product Analytics
+    if (mode === 'productAnalytics') {
+      console.log('Switching to Product Analytics - loading data...');
+      setTimeout(() => {
+        this.loadProductAnalytics();
+        this.refreshProductCharts();
+        console.log('Product charts refreshed');
+      }, 200);
+    }
+    console.log('=== VIEW MODE SET ===');
   }
 
   showNotifications(): void {
@@ -601,14 +1126,29 @@ export class DashboardComponent implements OnInit, OnDestroy {
     console.log(`Showing details for ${chartType} chart...`);
   }
 
-  expandChart(chartType: 'sales' | 'products' | 'regional' | 'channel'): void {
+  expandChart(chartType: string) {
+    console.log('Expanding chart:', chartType);
+    console.log('Current showModal state:', this.showModal);
+    console.log('Current expandedChart state:', this.expandedChart);
+    
+    this.isChartLoading = true;
     this.expandedChart = chartType;
-    document.body.style.overflow = 'hidden';
+    this.showModal = true;
+    
+    console.log('After setting - showModal:', this.showModal, 'expandedChart:', this.expandedChart);
+    
+    // Force chart update after a short delay
+    setTimeout(() => {
+      this.isChartLoading = false;
+      console.log('Chart should be loaded now');
+      console.log('Final state - showModal:', this.showModal, 'expandedChart:', this.expandedChart);
+    }, 100);
   }
 
   closeExpandedChart(): void {
     this.expandedChart = null;
-    document.body.style.overflow = '';
+    this.showModal = false;
+    this.isChartLoading = false;
   }
 
   getExpandedChartTitle(): string {
@@ -621,6 +1161,20 @@ export class DashboardComponent implements OnInit, OnDestroy {
         return 'Regional Performance';
       case 'channel':
         return 'Channel Performance';
+      case 'userDistribution':
+        return 'User Role Distribution';
+      case 'inventory':
+        return 'Inventory Status';
+      case 'productTrends':
+        return 'Product Sales Trends';
+      case 'categoryPerformance':
+        return 'Category Performance';
+      case 'productLifecycle':
+        return 'Product Lifecycle Analysis';
+      case 'profitabilityMatrix':
+        return 'Profitability Matrix';
+      case 'seasonality':
+        return 'Seasonality Analysis';
       default:
         return '';
     }
@@ -841,5 +1395,316 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
   toggleRoleDistributionTable(): void {
     this.showRoleDistributionTable = !this.showRoleDistributionTable;
+  }
+
+  toggleUserDistributionChart(): void {
+    this.showUserDistributionChart = !this.showUserDistributionChart;
+  }
+
+  toggleSystemHealth(): void {
+    this.showSystemHealth = !this.showSystemHealth;
+    if (this.showSystemHealth) {
+      this.updateSystemHealth();
+    }
+  }
+
+  toggleEnhancedActivity(): void {
+    this.showEnhancedActivity = !this.showEnhancedActivity;
+  }
+
+  updateSystemHealth(): void {
+    // Simulate real-time health data
+    this.systemHealth.api.responseTime = Math.floor(Math.random() * 100) + 20;
+    this.systemHealth.database.connections = Math.floor(Math.random() * 20) + 5;
+    this.systemHealth.server.cpu = Math.floor(Math.random() * 50) + 10;
+  }
+
+  filterActivity(): void {
+    this.filteredActivities = this.allActivities.filter(activity => {
+      const matchesType = this.activityFilter === 'all' || activity.type === this.activityFilter;
+      const matchesDate = !this.activityDate || 
+        activity.timestamp.toDateString() === new Date(this.activityDate).toDateString();
+      return matchesType && matchesDate;
+    });
+  }
+
+  getActivityIcon(type: string): string {
+    switch (type) {
+      case 'login': return 'fa-sign-in-alt';
+      case 'registration': return 'fa-user-plus';
+      case 'update': return 'fa-edit';
+      case 'delete': return 'fa-trash';
+      default: return 'fa-info-circle';
+    }
+  }
+
+  testChartRendering(): void {
+    this.showTestChart = !this.showTestChart;
+  }
+
+  testProductAnalytics(): void {
+    console.log('Testing Product Analytics...');
+    console.log('Current viewMode:', this.viewMode);
+    console.log('Product Analytics data:', {
+      inventoryData: this.inventoryData,
+      productTrendsData: this.productTrendsData,
+      categoryPerformanceData: this.categoryPerformanceData,
+      productLifecycleData: this.productLifecycleData,
+      profitabilityMatrixData: this.profitabilityMatrixData,
+      seasonalityData: this.seasonalityData
+    });
+    
+    // Force refresh of product charts
+    this.refreshProductCharts();
+  }
+
+  testModal(): void {
+    console.log('Testing modal functionality...');
+    console.log('Current showModal:', this.showModal);
+    console.log('Current expandedChart:', this.expandedChart);
+    
+    // Test with inventory chart
+    this.expandChart('inventory');
+    
+    // Log after a delay to see if it worked
+    setTimeout(() => {
+      console.log('After test - showModal:', this.showModal);
+      console.log('After test - expandedChart:', this.expandedChart);
+    }, 200);
+  }
+
+  private refreshProductCharts(): void {
+    // Force chart re-rendering by updating data references
+    this.inventoryData = { ...this.inventoryData };
+    this.productTrendsData = { ...this.productTrendsData };
+    this.categoryPerformanceData = { ...this.categoryPerformanceData };
+    this.productLifecycleData = { ...this.productLifecycleData };
+    this.profitabilityMatrixData = { ...this.profitabilityMatrixData };
+    this.seasonalityData = { ...this.seasonalityData };
+  }
+
+  private loadProductAnalytics(): void {
+    console.log('Loading product analytics data...');
+    
+    // Load product statistics
+    this.productApiService.getProductStatistics().subscribe({
+      next: (stats: ProductStatistics) => {
+        this.totalProducts = stats.totalProducts;
+        this.productRevenue = stats.totalRevenue;
+        this.lowStockCount = stats.lowStockCount;
+        this.outOfStockCount = stats.outOfStockCount;
+        console.log('Product statistics loaded:', stats);
+      },
+      error: (error) => {
+        console.error('Error loading product statistics:', error);
+        // Fallback to mock data if API fails
+        this.totalProducts = 40;
+        this.productRevenue = 8500000;
+        this.lowStockCount = 5;
+        this.outOfStockCount = 5;
+      }
+    });
+
+    // Load inventory status
+    this.productApiService.getInventoryStatus().subscribe({
+      next: (inventory: InventoryStatus) => {
+        this.inventoryData = {
+          labels: inventory.labels,
+          datasets: [{
+            data: inventory.data,
+            backgroundColor: inventory.colors,
+            borderWidth: 2,
+            borderColor: '#ffffff'
+          }]
+        };
+        console.log('Inventory status loaded:', inventory);
+      },
+      error: (error) => {
+        console.error('Error loading inventory status:', error);
+        // Fallback to mock data
+        this.inventoryData = {
+          labels: ['In Stock', 'Low Stock', 'Out of Stock'],
+          datasets: [{
+            data: [30, 5, 5],
+            backgroundColor: ['#2ecc71', '#f39c12', '#e74c3c'],
+            borderWidth: 2,
+            borderColor: '#ffffff'
+          }]
+        };
+      }
+    });
+
+    // Load sales trends
+    this.productApiService.getSalesTrends().subscribe({
+      next: (trends: SalesTrends) => {
+        this.productTrendsData = {
+          labels: trends.labels,
+          datasets: trends.datasets.map(dataset => ({
+            label: dataset.label,
+            data: dataset.data,
+            borderColor: dataset.borderColor,
+            backgroundColor: dataset.backgroundColor,
+            fill: true,
+            tension: 0.4
+          }))
+        };
+        console.log('Sales trends loaded:', trends);
+      },
+      error: (error) => {
+        console.error('Error loading sales trends:', error);
+        // Fallback to mock data
+        this.productTrendsData = {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+          datasets: [
+            {
+              label: 'Kitchen Products',
+              data: [45000, 52000, 48000, 55000, 60000, 58000],
+              borderColor: '#3498db',
+              backgroundColor: 'rgba(52, 152, 219, 0.1)',
+              fill: true,
+              tension: 0.4
+            }
+          ]
+        };
+      }
+    });
+
+    // Load category performance
+    this.productApiService.getCategoryPerformance().subscribe({
+      next: (performance: CategoryPerformance) => {
+        this.categoryPerformanceData = {
+          datasets: performance.datasets.map(dataset => ({
+            label: dataset.label,
+            data: dataset.data,
+            backgroundColor: dataset.backgroundColor,
+            pointRadius: 8,
+            pointHoverRadius: 12
+          }))
+        };
+        console.log('Category performance loaded:', performance);
+      },
+      error: (error) => {
+        console.error('Error loading category performance:', error);
+        // Fallback to mock data
+        this.categoryPerformanceData = {
+          datasets: [
+            {
+              label: 'Kitchen',
+              data: [{ x: 1250000, y: 15.2 }],
+              backgroundColor: '#3498db',
+              pointRadius: 8,
+              pointHoverRadius: 12
+            }
+          ]
+        };
+      }
+    });
+
+    // Load product lifecycle
+    this.productApiService.getProductLifecycle().subscribe({
+      next: (lifecycle: ProductLifecycle) => {
+        this.productLifecycleData = {
+          labels: lifecycle.labels,
+          datasets: lifecycle.datasets.map(dataset => ({
+            label: dataset.label,
+            data: dataset.data,
+            borderColor: dataset.borderColor,
+            backgroundColor: dataset.backgroundColor,
+            borderWidth: 2,
+            pointBackgroundColor: dataset.borderColor,
+            pointBorderColor: '#ffffff',
+            pointHoverBackgroundColor: '#ffffff',
+            pointHoverBorderColor: dataset.borderColor
+          }))
+        };
+        console.log('Product lifecycle loaded:', lifecycle);
+      },
+      error: (error) => {
+        console.error('Error loading product lifecycle:', error);
+        // Fallback to mock data
+        this.productLifecycleData = {
+          labels: ['Introduction', 'Growth', 'Maturity', 'Decline', 'Innovation', 'Market Share'],
+          datasets: [
+            {
+              label: 'Current Products',
+              data: [85, 92, 78, 45, 88, 76],
+              borderColor: '#3498db',
+              backgroundColor: 'rgba(52, 152, 219, 0.2)',
+              borderWidth: 2,
+              pointBackgroundColor: '#3498db',
+              pointBorderColor: '#ffffff',
+              pointHoverBackgroundColor: '#ffffff',
+              pointHoverBorderColor: '#3498db'
+            }
+          ]
+        };
+      }
+    });
+
+    // Load profitability matrix
+    this.productApiService.getProfitabilityMatrix().subscribe({
+      next: (matrix: ProfitabilityMatrix) => {
+        this.profitabilityMatrixData = {
+          datasets: matrix.datasets.map(dataset => ({
+            label: dataset.label,
+            data: dataset.data,
+            backgroundColor: dataset.backgroundColor,
+            borderColor: dataset.backgroundColor,
+            borderWidth: 1
+          }))
+        };
+        console.log('Profitability matrix loaded:', matrix);
+      },
+      error: (error) => {
+        console.error('Error loading profitability matrix:', error);
+        // Fallback to mock data
+        this.profitabilityMatrixData = {
+          datasets: [
+            {
+              label: 'High Revenue, High Margin',
+              data: [{ x: 1200000, y: 35, r: 25 }],
+              backgroundColor: '#2ecc71',
+              borderColor: '#2ecc71',
+              borderWidth: 1
+            }
+          ]
+        };
+      }
+    });
+
+    // Load seasonality analysis
+    this.productApiService.getSeasonalityAnalysis().subscribe({
+      next: (seasonality: SeasonalityAnalysis) => {
+        this.seasonalityData = {
+          labels: seasonality.labels,
+          datasets: seasonality.datasets.map(dataset => ({
+            label: dataset.label,
+            data: dataset.data,
+            borderColor: dataset.borderColor,
+            backgroundColor: dataset.backgroundColor,
+            fill: true,
+            tension: 0.4
+          }))
+        };
+        console.log('Seasonality analysis loaded:', seasonality);
+      },
+      error: (error) => {
+        console.error('Error loading seasonality analysis:', error);
+        // Fallback to mock data
+        this.seasonalityData = {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+          datasets: [
+            {
+              label: 'Kitchen Products',
+              data: [85, 78, 92, 88, 95, 98, 92, 88, 85, 90, 95, 100],
+              borderColor: '#3498db',
+              backgroundColor: 'rgba(52, 152, 219, 0.1)',
+              fill: true,
+              tension: 0.4
+            }
+          ]
+        };
+      }
+    });
   }
 }

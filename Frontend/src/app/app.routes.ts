@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 import { authGuard } from './auth.guard'; // adjust the path if needed
 import { ChartjsModule } from '@coreui/angular-chartjs';
 
@@ -16,6 +17,10 @@ export const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [authGuard],
+  },
+  {
+    path: 'about-us',
+    component: AboutUsComponent,
   },
   {
     path: '',
