@@ -46,6 +46,8 @@ export class LoginComponent {
       this.authService.login(email, password).subscribe({
         next: (response) => {
           console.log('Login successful:', response);
+          localStorage.setItem('userEmail', email);
+          console.log('Saved userEmail to localStorage:', localStorage.getItem('userEmail'));
           this.isLoading = false;
           this.router.navigate(['/dashboard']);
         },

@@ -20,7 +20,9 @@ import { Subject, takeUntil } from 'rxjs';
 })
 export class DashboardComponent implements OnInit, OnDestroy {
   email: string = '';
+  userName: string = '';
   lastLoginDate: string = new Date().toLocaleDateString();
+  lastLoginTime: string = '';
   isRefreshing: boolean = false;
   viewMode: 'overview' | 'detailed' | 'productAnalytics' = 'overview';
   unreadNotifications: number = 3;
@@ -32,9 +34,18 @@ export class DashboardComponent implements OnInit, OnDestroy {
   totalOrders: number = 15600;
   ordersChange: number = 8.2;
   ordersTrend: number = 3.1;
+  totalCustomers: number = 8500;
+  customersChange: number = 15.3;
+  customersTrend: number = 7.8;
+  conversionRate: number = 3.2;
+  conversionChange: number = 2.1;
+  conversionTrend: number = 1.5;
   averageOrderValue: number = 801;
   aovChange: number = 4.1;
   aovTrend: number = 2.3;
+  returnRate: number = 2.8;
+  returnChange: number = -1.2;
+  returnTrend: number = -0.8;
   customerSatisfaction: number = 92;
   satisfactionChange: number = 2.5;
   satisfactionTrend: number = 1.8;
@@ -428,7 +439,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   private refreshTimer: any;
 
   // New KPI metrics
-  conversionRate: number = 0;
   customerAcquisitionCost: number = 0;
   customerLifetimeValue: number = 0;
   bounceRate: number = 0;
@@ -1001,29 +1011,36 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    // Load saved theme preference first
-    const savedTheme = localStorage.getItem('theme');
-    console.log('Loading saved theme from localStorage:', savedTheme);
-    if (savedTheme === 'dark') {
-      this.isDarkMode = true;
-      document.body.classList.add('dark-mode');
-      console.log('Dark mode enabled from saved preference');
-    } else {
-      document.body.classList.remove('dark-mode');
-      console.log('Light mode enabled (default or saved preference)');
-    }
-    
     this.initializeDates();
     this.loadUsers();
     this.loadUserStats();
     this.loadUserRoleDistribution();
     this.loadRecentActivity();
-    this.loadProductAnalytics();
+    this.updateSystemHealth();
+    this.calculateLastLoginTime();
     
-    // Update chart colors based on theme
-    setTimeout(() => {
-      this.updateChartColors();
-    }, 500);
+    // Initialize theme
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      this.isDarkMode = savedTheme === 'dark';
+    } else {
+      this.isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    this.updateChartColors();
+    
+    // Update last login time every minute
+    setInterval(() => {
+      this.calculateLastLoginTime();
+    }, 60000);
+
+    const email = localStorage.getItem('userEmail');
+    console.log('Dashboard loaded userEmail:', email);
+    if (email) {
+      this.userName = email.split('@')[0];
+    } else {
+      this.userName = 'User';
+    }
+    console.log('Dashboard extracted userName:', this.userName);
   }
 
   ngOnDestroy(): void {
@@ -1235,8 +1252,25 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
   }
 
-  exportData(): void {
-    // Add your export logic here
+  exportData(section: string): void {
+    console.log('Export button clicked for:', section);
+    if (section === 'salesChart') {
+      const labels = this.salesPerformanceData.labels as string[];
+      const datasets = this.salesPerformanceData.datasets;
+      let csv = 'Month,' + datasets.map(ds => ds.label).join(',') + '\n';
+      labels.forEach((label, i) => {
+        csv += label + ',' + datasets.map(ds => ds.data[i]).join(',') + '\n';
+      });
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'sales.csv';
+      a.click();
+      window.URL.revokeObjectURL(url);
+      return;
+    }
+    // ...other export logic...
   }
 
   toggleTheme(): void {
@@ -1807,5 +1841,55 @@ export class DashboardComponent implements OnInit, OnDestroy {
         };
       }
     });
+  }
+
+  private calculateLastLoginTime(): void {
+    // Get last login time from localStorage or use a default time
+    const lastLoginTimestamp = localStorage.getItem('lastLoginTimestamp');
+    let lastLoginDate: Date;
+    
+    console.log('Calculating last login time...');
+    console.log('Stored timestamp:', lastLoginTimestamp);
+    
+    if (lastLoginTimestamp) {
+      lastLoginDate = new Date(parseInt(lastLoginTimestamp));
+    } else {
+      // If no stored timestamp, simulate a login 2 hours ago
+      lastLoginDate = new Date(Date.now() - (2 * 60 * 60 * 1000));
+      localStorage.setItem('lastLoginTimestamp', lastLoginDate.getTime().toString());
+    }
+    
+    const now = new Date();
+    const timeDiff = now.getTime() - lastLoginDate.getTime();
+    
+    console.log('Last login date:', lastLoginDate);
+    console.log('Current time:', now);
+    console.log('Time difference (ms):', timeDiff);
+    
+    // Calculate time difference
+    const minutes = Math.floor(timeDiff / (1000 * 60));
+    const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+    const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+    
+    console.log('Calculated - minutes:', minutes, 'hours:', hours, 'days:', days);
+    
+    if (days > 0) {
+      this.lastLoginTime = `${days}d ago`;
+    } else if (hours > 0) {
+      this.lastLoginTime = `${hours}h ago`;
+    } else if (minutes > 0) {
+      this.lastLoginTime = `${minutes}m ago`;
+    } else {
+      this.lastLoginTime = 'Just now';
+    }
+    
+    console.log('Final lastLoginTime:', this.lastLoginTime);
+  }
+
+  // Method to update last login timestamp (call this when user logs in)
+  updateLastLogin(): void {
+    const now = new Date();
+    localStorage.setItem('lastLoginTimestamp', now.getTime().toString());
+    this.calculateLastLoginTime();
   }
 }
