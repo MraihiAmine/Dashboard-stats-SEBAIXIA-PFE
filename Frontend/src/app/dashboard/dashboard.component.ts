@@ -998,20 +998,32 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.authService.getCurrentUser().subscribe(user => {
       this.email = user?.email || '';
     });
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-      this.isDarkMode = true;
-    }
   }
 
   ngOnInit(): void {
+    // Load saved theme preference first
+    const savedTheme = localStorage.getItem('theme');
+    console.log('Loading saved theme from localStorage:', savedTheme);
+    if (savedTheme === 'dark') {
+      this.isDarkMode = true;
+      document.body.classList.add('dark-mode');
+      console.log('Dark mode enabled from saved preference');
+    } else {
+      document.body.classList.remove('dark-mode');
+      console.log('Light mode enabled (default or saved preference)');
+    }
+    
     this.initializeDates();
     this.loadUsers();
     this.loadUserStats();
     this.loadUserRoleDistribution();
     this.loadRecentActivity();
     this.loadProductAnalytics();
+    
+    // Update chart colors based on theme
+    setTimeout(() => {
+      this.updateChartColors();
+    }, 500);
   }
 
   ngOnDestroy(): void {
@@ -1228,8 +1240,97 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   toggleTheme(): void {
+    console.log('Toggling theme - Current isDarkMode:', this.isDarkMode);
     this.isDarkMode = !this.isDarkMode;
     localStorage.setItem('theme', this.isDarkMode ? 'dark' : 'light');
+    
+    // Apply dark mode class to body for global styling
+    if (this.isDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+    
+    // Update chart colors for dark mode
+    this.updateChartColors();
+    
+    console.log('Theme toggled - New isDarkMode:', this.isDarkMode);
+    console.log('Theme saved to localStorage:', this.isDarkMode ? 'dark' : 'light');
+  }
+
+  private updateChartColors(): void {
+    // Update chart options based on dark mode
+    const textColor = this.isDarkMode ? '#adb1c9' : '#2c3e50';
+    const gridColor = this.isDarkMode ? 'rgba(173, 177, 201, 0.1)' : 'rgba(159, 176, 245, 0.1)';
+    const tooltipBg = this.isDarkMode ? 'rgba(45, 45, 45, 0.95)' : 'rgba(159, 176, 245, 0.9)';
+    const tooltipBorder = this.isDarkMode ? '#4a90e2' : '#7B8FD4';
+    
+    // Update all chart options with dark mode colors
+    const chartsToUpdate = [
+      this.salesPerformanceOptions,
+      this.topProductsOptions,
+      this.regionalOptions,
+      this.channelOptions,
+      this.userRoleChartOptions,
+      this.performanceOptions,
+      this.inventoryOptions,
+      this.productTrendsOptions,
+      this.categoryPerformanceOptions,
+      this.productLifecycleOptions,
+      this.profitabilityMatrixOptions,
+      this.seasonalityOptions,
+      this.expandedChartOptions
+    ];
+    
+    chartsToUpdate.forEach(chartOptions => {
+      if (chartOptions) {
+        // Update scales
+        if (chartOptions.scales && chartOptions.scales) {
+          Object.keys(chartOptions.scales).forEach(scaleKey => {
+            const scale = chartOptions.scales![scaleKey as keyof typeof chartOptions.scales];
+            if (scale) {
+              // Update grid color
+              if (scale.grid) {
+                scale.grid.color = gridColor;
+              }
+              // Update tick colors
+              if (scale.ticks) {
+                scale.ticks.color = textColor;
+              }
+            }
+          });
+        }
+        
+        // Update legend colors
+        if (chartOptions.plugins?.legend?.labels) {
+          chartOptions.plugins.legend.labels.color = textColor;
+        }
+        
+        // Update tooltip colors
+        if (chartOptions.plugins?.tooltip) {
+          chartOptions.plugins.tooltip.backgroundColor = tooltipBg;
+          chartOptions.plugins.tooltip.borderColor = tooltipBorder;
+          chartOptions.plugins.tooltip.titleColor = this.isDarkMode ? '#ffffff' : '#2c3e50';
+          chartOptions.plugins.tooltip.bodyColor = this.isDarkMode ? '#adb1c9' : '#2c3e50';
+        }
+      }
+    });
+    
+    // Force chart updates and redraws
+    setTimeout(() => {
+      this.refreshProductCharts();
+      
+      // Force all charts to redraw
+      const chartElements = document.querySelectorAll('canvas');
+      chartElements.forEach(canvas => {
+        const chartInstance = (canvas as any).chart;
+        if (chartInstance) {
+          chartInstance.update('none'); // Update without animation
+        }
+      });
+      
+      console.log('Charts updated for dark mode:', this.isDarkMode);
+    }, 100);
   }
 
   navigateDate(direction: 'prev' | 'next'): void {

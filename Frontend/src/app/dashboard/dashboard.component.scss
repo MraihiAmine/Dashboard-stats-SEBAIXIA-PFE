@@ -1197,6 +1197,18 @@
   }
 }
 
+.sidebar .menu-item.hidden-menu-item {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  left: -9999px !important;
+}
+
 // Main Content
 .main-content {
   margin-left: 220px;
@@ -1237,6 +1249,229 @@
 
         &.active {
           background-color: rgba(255, 255, 255, 0.15);
+        }
+      }
+    }
+  }
+
+  // Chart dark mode styles
+  .chart-card {
+    background-color: #2d2d2d;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    
+    .chart-title h3 {
+      color: #adb1c9;
+    }
+    
+    .chart-subtitle {
+      color: #ffffff;
+    }
+    
+    .chart-wrapper {
+      background-color: #2d2d2d;
+      
+      .chart-container {
+        background-color: #2d2d2d;
+        
+        canvas {
+          background-color: #2d2d2d !important;
+        }
+      }
+    }
+    
+    .chart-footer {
+      background-color: #2d2d2d;
+      border-top-color: #3d3d3d;
+      
+      .chart-legend {
+        .legend-item {
+          .legend-label {
+            color: #adb1c9;
+          }
+        }
+      }
+      
+      .chart-summary {
+        .summary-item {
+          .summary-label {
+            color: #adb1c9;
+          }
+          
+          .summary-value {
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+
+  // Main chart specific dark mode
+  .main-chart {
+    .chart-wrapper {
+      background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+      
+      .chart-container {
+        background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+        
+        canvas {
+          background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%) !important;
+        }
+      }
+    }
+  }
+
+  // Secondary charts dark mode
+  .secondary-charts-grid {
+    .chart-card {
+      background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+      
+      .chart-wrapper {
+        background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+        
+        .chart-container {
+          background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+          
+          canvas {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%) !important;
+          }
+        }
+      }
+    }
+  }
+
+  // Product Analytics charts dark mode
+  .product-analytics-view {
+    background-color: #1a1a1a;
+    
+    .kpi-cards {
+      .kpi-card {
+        background-color: #2d2d2d;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        
+        h3 {
+          color: #adb1c9;
+        }
+        
+        .kpi-value {
+          color: #ffffff;
+        }
+        
+        .kpi-change {
+          color: #adb1c9;
+        }
+      }
+    }
+    
+    .chart-card {
+      background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      
+      .chart-title h3 {
+        color: #adb1c9;
+      }
+      
+      .chart-subtitle {
+        color: #ffffff;
+      }
+      
+      .chart-wrapper {
+        background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+        
+        .chart-container {
+          background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+          
+          canvas {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%) !important;
+          }
+        }
+      }
+      
+      .chart-footer {
+        background-color: #2d2d2d;
+        border-top-color: #3d3d3d;
+        
+        .chart-legend {
+          .legend-item {
+            .legend-label {
+              color: #adb1c9;
+            }
+          }
+        }
+        
+        .chart-summary {
+          .summary-item {
+            .summary-label {
+              color: #adb1c9;
+            }
+            
+            .summary-value {
+              color: #ffffff;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Detailed view charts dark mode
+  .detailed-view {
+    .chart-card {
+      background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+      
+      .chart-wrapper {
+        background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+        
+        .chart-container {
+          background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+          
+          canvas {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%) !important;
+          }
+        }
+      }
+    }
+  }
+
+  // Modal chart dark mode
+  .modal {
+    background-color: rgba(0, 0, 0, 0.8);
+    
+    .modal-content {
+      background-color: #2d2d2d;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      
+      .modal-header {
+        background-color: #3d3d3d;
+        border-bottom-color: #4d4d4d;
+        
+        h2 {
+          color: #ffffff;
+        }
+      }
+      
+      .modal-body {
+        background-color: #2d2d2d;
+        color: #ffffff;
+        
+        .chart-container {
+          background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%);
+          
+          canvas {
+            background: linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%) !important;
+          }
+        }
+      }
+      
+      .modal-footer {
+        background-color: #3d3d3d;
+        border-top-color: #4d4d4d;
+      }
+      
+      .close-btn {
+        color: #adb1c9;
+        
+        &:hover {
+          color: #ffffff;
         }
       }
     }
@@ -2651,3 +2886,929 @@
     }
   }
 }
+
+// Menu Items
+.menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  color: #2c3e50;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(159, 176, 245, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+
+  &:hover {
+    background-color: rgba(159, 176, 245, 0.1);
+    transform: translateX(4px);
+    color: #9FB0F5;
+
+    &::before {
+      left: 100%;
+    }
+
+    i {
+      transform: scale(1.1);
+    }
+  }
+
+  &.active {
+    background-color: rgba(159, 176, 245, 0.15);
+    color: #9FB0F5;
+    box-shadow: 0 2px 8px rgba(159, 176, 245, 0.2);
+
+    i {
+      color: #9FB0F5;
+    }
+  }
+
+  i {
+    font-size: 16px;
+    transition: all 0.3s ease;
+    color: #6c757d;
+  }
+
+  span {
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+}
+
+.hidden-menu-item {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+}
+
+// Premium Chart Styles for Sales Performance Overview
+.premium-chart {
+  background: 
+    linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%),
+    radial-gradient(circle at 20% 80%, rgba(159, 176, 245, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(123, 143, 212, 0.1) 0%, transparent 50%),
+    linear-gradient(45deg, transparent 30%, rgba(159, 176, 245, 0.03) 50%, transparent 70%);
+  background-size: 100% 100%, 300px 300px, 300px 300px, 100% 100%;
+  border: 1px solid rgba(159, 176, 245, 0.1);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.08),
+    0 8px 16px rgba(159, 176, 245, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #9FB0F5, #7B8FD4, #9FB0F5);
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.8) 0%, transparent 20%),
+      radial-gradient(circle at 90% 90%, rgba(255, 255, 255, 0.6) 0%, transparent 20%),
+      linear-gradient(135deg, transparent 40%, rgba(159, 176, 245, 0.02) 50%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: 
+      0 32px 64px rgba(0, 0, 0, 0.12),
+      0 16px 32px rgba(159, 176, 245, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    
+    &::after {
+      background: 
+        radial-gradient(circle at 10% 10%, rgba(255, 255, 255, 0.9) 0%, transparent 25%),
+        radial-gradient(circle at 90% 90%, rgba(255, 255, 255, 0.7) 0%, transparent 25%),
+        linear-gradient(135deg, transparent 40%, rgba(159, 176, 245, 0.04) 50%, transparent 60%);
+    }
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 200% 0; }
+  50% { background-position: -200% 0; }
+}
+
+// Premium Header Styles
+.premium-header {
+  background: 
+    linear-gradient(135deg, rgba(159, 176, 245, 0.05) 0%, rgba(123, 143, 212, 0.05) 100%),
+    radial-gradient(circle at 30% 50%, rgba(159, 176, 245, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 50%, rgba(123, 143, 212, 0.08) 0%, transparent 50%);
+  background-size: 100% 100%, 200px 200px, 200px 200px;
+  padding: 24px 32px;
+  border-bottom: 1px solid rgba(159, 176, 245, 0.1);
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(159, 176, 245, 0.3), transparent);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%),
+      radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.2) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+.chart-title-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.chart-title {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.title-icon {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, #9FB0F5, #7B8FD4);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(159, 176, 245, 0.3);
+  transition: all 0.3s ease;
+
+  i {
+    color: white;
+    font-size: 20px;
+  }
+
+  &:hover {
+    transform: scale(1.05) rotate(5deg);
+    box-shadow: 0 6px 16px rgba(159, 176, 245, 0.4);
+  }
+}
+
+.title-content {
+  h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2c3e50;
+    margin: 0 0 4px 0;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .chart-subtitle {
+    color: #6c757d;
+    font-size: 14px;
+    font-weight: 500;
+  }
+}
+
+.chart-status {
+  .status-indicator {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    background: rgba(46, 204, 113, 0.1);
+    border-radius: 20px;
+    border: 1px solid rgba(46, 204, 113, 0.2);
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      background: #2ecc71;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    span {
+      color: #27ae60;
+      font-size: 12px;
+      font-weight: 600;
+    }
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.2); }
+}
+
+// Premium Controls
+.premium-controls {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.premium-btn {
+  background: linear-gradient(135deg, #ffffff, #f8f9fa);
+  border: 1px solid rgba(159, 176, 245, 0.2);
+  border-radius: 12px;
+  padding: 12px 20px;
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(159, 176, 245, 0.1), transparent);
+    transition: left 0.5s ease;
+  }
+
+  &:hover {
+    background: linear-gradient(135deg, #9FB0F5, #7B8FD4);
+    color: white;
+    border-color: #7B8FD4;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(159, 176, 245, 0.3);
+
+    &::before {
+      left: 100%;
+    }
+
+    i {
+      transform: scale(1.1);
+    }
+  }
+
+  i {
+    transition: transform 0.3s ease;
+  }
+}
+
+.expand-btn {
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: white;
+  border-color: #27ae60;
+
+  &:hover {
+    background: linear-gradient(135deg, #27ae60, #229954);
+    border-color: #229954;
+  }
+}
+
+// Premium Chart Wrapper
+.premium-wrapper {
+  position: relative;
+  background: 
+    linear-gradient(135deg, rgba(159, 176, 245, 0.02) 0%, rgba(123, 143, 212, 0.02) 100%),
+    radial-gradient(circle at 25% 25%, rgba(159, 176, 245, 0.03) 0%, transparent 40%),
+    radial-gradient(circle at 75% 75%, rgba(123, 143, 212, 0.03) 0%, transparent 40%),
+    linear-gradient(90deg, transparent 20%, rgba(255, 255, 255, 0.1) 50%, transparent 80%);
+  background-size: 100% 100%, 250px 250px, 250px 250px, 100% 100%;
+  border-radius: 16px;
+  margin: 20px;
+  overflow: hidden;
+}
+
+.chart-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 30% 20%, rgba(159, 176, 245, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 80%, rgba(123, 143, 212, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 60%),
+    linear-gradient(135deg, transparent 30%, rgba(159, 176, 245, 0.02) 50%, transparent 70%),
+    linear-gradient(45deg, transparent 40%, rgba(123, 143, 212, 0.02) 60%, transparent 80%);
+  background-size: 300px 300px, 300px 300px, 400px 400px, 100% 100%, 100% 100%;
+  pointer-events: none;
+  animation: subtleFloat 20s ease-in-out infinite;
+}
+
+@keyframes subtleFloat {
+  0%, 100% { 
+    background-position: 
+      30% 20%, 
+      70% 80%, 
+      50% 50%, 
+      0% 0%, 
+      0% 0%; 
+  }
+  50% { 
+    background-position: 
+      35% 25%, 
+      65% 75%, 
+      55% 45%, 
+      10% 10%, 
+      -10% -10%; 
+  }
+}
+
+.premium-container {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+}
+
+// Floating Indicators
+.floating-indicators {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 2;
+}
+
+.indicator-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(159, 176, 245, 0.2);
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  min-width: 140px;
+
+  &:hover {
+    transform: translateX(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.indicator-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #9FB0F5, #7B8FD4);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    color: white;
+    font-size: 14px;
+  }
+}
+
+.indicator-content {
+  display: flex;
+  flex-direction: column;
+
+  .indicator-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2c3e50;
+    line-height: 1;
+  }
+
+  .indicator-label {
+    font-size: 11px;
+    color: #6c757d;
+    font-weight: 500;
+  }
+}
+
+// Premium Footer
+.premium-footer {
+  background: 
+    linear-gradient(135deg, rgba(159, 176, 245, 0.03) 0%, rgba(123, 143, 212, 0.03) 100%),
+    radial-gradient(circle at 20% 50%, rgba(159, 176, 245, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 50%, rgba(123, 143, 212, 0.05) 0%, transparent 50%),
+    linear-gradient(90deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+  background-size: 100% 100%, 200px 200px, 200px 200px, 100% 100%;
+  padding: 24px 32px;
+  border-top: 1px solid rgba(159, 176, 245, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.1) 50%, transparent 60%),
+      radial-gradient(circle at 50% 100%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+.premium-legend {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.premium-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  border: 1px solid rgba(159, 176, 245, 0.1);
+  transition: all 0.3s ease;
+  min-width: 180px;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.legend-color-wrapper {
+  position: relative;
+  
+  .legend-color {
+    width: 16px;
+    height: 16px;
+    border-radius: 4px;
+    display: block;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.legend-label {
+  font-size: 13px;
+  color: #2c3e50;
+  font-weight: 600;
+  flex: 1;
+}
+
+.legend-value {
+  font-size: 14px;
+  font-weight: 700;
+  color: #9FB0F5;
+}
+
+.premium-summary {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.premium-summary-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  border: 1px solid rgba(159, 176, 245, 0.1);
+  transition: all 0.3s ease;
+  min-width: 160px;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.summary-icon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, #9FB0F5, #7B8FD4);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    color: white;
+    font-size: 14px;
+  }
+}
+
+.summary-content {
+  display: flex;
+  flex-direction: column;
+
+  .summary-label {
+    font-size: 11px;
+    color: #6c757d;
+    font-weight: 500;
+  }
+
+  .summary-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2c3e50;
+
+    &.positive {
+      color: #27ae60;
+    }
+
+    &.negative {
+      color: #e74c3c;
+    }
+  }
+}
+
+// Dark mode support for premium chart
+.dark-mode {
+  .premium-chart {
+    background: 
+      linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%),
+      radial-gradient(circle at 20% 80%, rgba(159, 176, 245, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(123, 143, 212, 0.15) 0%, transparent 50%),
+      linear-gradient(45deg, transparent 30%, rgba(159, 176, 245, 0.05) 50%, transparent 70%);
+    background-size: 100% 100%, 300px 300px, 300px 300px, 100% 100%;
+    border-color: rgba(159, 176, 245, 0.2);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 8px 16px rgba(159, 176, 245, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    &::after {
+      background: 
+        radial-gradient(circle at 10% 10%, rgba(45, 45, 45, 0.8) 0%, transparent 20%),
+        radial-gradient(circle at 90% 90%, rgba(45, 45, 45, 0.6) 0%, transparent 20%),
+        linear-gradient(135deg, transparent 40%, rgba(159, 176, 245, 0.03) 50%, transparent 60%);
+    }
+
+    &:hover::after {
+      background: 
+        radial-gradient(circle at 10% 10%, rgba(45, 45, 45, 0.9) 0%, transparent 25%),
+        radial-gradient(circle at 90% 90%, rgba(45, 45, 45, 0.7) 0%, transparent 25%),
+        linear-gradient(135deg, transparent 40%, rgba(159, 176, 245, 0.05) 50%, transparent 60%);
+    }
+  }
+
+  .premium-header {
+    background: 
+      linear-gradient(135deg, rgba(159, 176, 245, 0.1) 0%, rgba(123, 143, 212, 0.1) 100%),
+      radial-gradient(circle at 30% 50%, rgba(159, 176, 245, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 70% 50%, rgba(123, 143, 212, 0.12) 0%, transparent 50%);
+    background-size: 100% 100%, 200px 200px, 200px 200px;
+    border-bottom-color: rgba(159, 176, 245, 0.2);
+
+    &::before {
+      background: 
+        linear-gradient(45deg, transparent 30%, rgba(45, 45, 45, 0.1) 50%, transparent 70%),
+        radial-gradient(circle at 50% 0%, rgba(45, 45, 45, 0.2) 0%, transparent 50%);
+    }
+  }
+
+  .premium-wrapper {
+    background: 
+      linear-gradient(135deg, rgba(159, 176, 245, 0.05) 0%, rgba(123, 143, 212, 0.05) 100%),
+      radial-gradient(circle at 25% 25%, rgba(159, 176, 245, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 75% 75%, rgba(123, 143, 212, 0.08) 0%, transparent 40%),
+      linear-gradient(90deg, transparent 20%, rgba(45, 45, 45, 0.1) 50%, transparent 80%);
+    background-size: 100% 100%, 250px 250px, 250px 250px, 100% 100%;
+  }
+
+  .gradient-overlay {
+    background: 
+      radial-gradient(circle at 30% 20%, rgba(159, 176, 245, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 70% 80%, rgba(123, 143, 212, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, rgba(45, 45, 45, 0.1) 0%, transparent 60%),
+      linear-gradient(135deg, transparent 30%, rgba(159, 176, 245, 0.03) 50%, transparent 70%),
+      linear-gradient(45deg, transparent 40%, rgba(123, 143, 212, 0.03) 60%, transparent 80%);
+    background-size: 300px 300px, 300px 300px, 400px 400px, 100% 100%, 100% 100%;
+  }
+
+  .premium-footer {
+    background: 
+      linear-gradient(135deg, rgba(159, 176, 245, 0.05) 0%, rgba(123, 143, 212, 0.05) 100%),
+      radial-gradient(circle at 20% 50%, rgba(159, 176, 245, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 50%, rgba(123, 143, 212, 0.08) 0%, transparent 50%),
+      linear-gradient(90deg, transparent 30%, rgba(45, 45, 45, 0.05) 50%, transparent 70%);
+    background-size: 100% 100%, 200px 200px, 200px 200px, 100% 100%;
+
+    &::before {
+      background: 
+        linear-gradient(45deg, transparent 40%, rgba(45, 45, 45, 0.1) 50%, transparent 60%),
+        radial-gradient(circle at 50% 100%, rgba(45, 45, 45, 0.1) 0%, transparent 50%);
+    }
+  }
+
+  .title-content h3 {
+    background: linear-gradient(135deg, #ffffff, #adb1c9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .premium-btn {
+    background: linear-gradient(135deg, #3d3d3d, #2d2d2d);
+    border-color: rgba(159, 176, 245, 0.3);
+    color: #adb1c9;
+
+    &:hover {
+      background: linear-gradient(135deg, #9FB0F5, #7B8FD4);
+      color: white;
+    }
+  }
+
+  .indicator-card,
+  .premium-legend-item,
+  .premium-summary-item {
+    background: rgba(45, 45, 45, 0.9);
+    border-color: rgba(159, 176, 245, 0.2);
+    color: #adb1c9;
+
+    &:hover {
+      background: rgba(45, 45, 45, 0.95);
+    }
+  }
+
+  .legend-label,
+  .summary-label {
+    color: #adb1c9;
+  }
+
+  .legend-value,
+  .summary-value {
+    color: #9FB0F5;
+  }
+}
+
+// Premium Secondary Charts Styles
+.premium-secondary-chart {
+  background: 
+    linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%),
+    radial-gradient(circle at 20% 80%, rgba(159, 176, 245, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(123, 143, 212, 0.08) 0%, transparent 50%),
+    linear-gradient(45deg, transparent 30%, rgba(159, 176, 245, 0.02) 50%, transparent 70%);
+  background-size: 100% 100%, 250px 250px, 250px 250px, 100% 100%;
+  border: 1px solid rgba(159, 176, 245, 0.1);
+  box-shadow: 
+    0 15px 30px rgba(0, 0, 0, 0.06),
+    0 6px 12px rgba(159, 176, 245, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #9FB0F5, #7B8FD4, #9FB0F5);
+    background-size: 200% 100%;
+    animation: shimmer 4s ease-in-out infinite;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.7) 0%, transparent 25%),
+      radial-gradient(circle at 85% 85%, rgba(255, 255, 255, 0.5) 0%, transparent 25%),
+      linear-gradient(135deg, transparent 40%, rgba(159, 176, 245, 0.02) 50%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 
+      0 25px 50px rgba(0, 0, 0, 0.1),
+      0 12px 24px rgba(159, 176, 245, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    
+    &::after {
+      background: 
+        radial-gradient(circle at 15% 15%, rgba(255, 255, 255, 0.8) 0%, transparent 30%),
+        radial-gradient(circle at 85% 85%, rgba(255, 255, 255, 0.6) 0%, transparent 30%),
+        linear-gradient(135deg, transparent 40%, rgba(159, 176, 245, 0.03) 50%, transparent 60%);
+    }
+  }
+}
+
+// Premium Secondary Header
+.premium-secondary-header {
+  background: 
+    linear-gradient(135deg, rgba(159, 176, 245, 0.04) 0%, rgba(123, 143, 212, 0.04) 100%),
+    radial-gradient(circle at 30% 50%, rgba(159, 176, 245, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 70% 50%, rgba(123, 143, 212, 0.06) 0%, transparent 50%);
+  background-size: 100% 100%, 180px 180px, 180px 180px;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(159, 176, 245, 0.08);
+  position: relative;
+  z-index: 1;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(159, 176, 245, 0.25), transparent);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+      linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.08) 50%, transparent 70%),
+      radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.15) 0%, transparent 50%);
+    pointer-events: none;
+  }
+}
+
+// Premium Secondary Wrapper
+.premium-secondary-wrapper {
+  position: relative;
+  background: 
+    linear-gradient(135deg, rgba(159, 176, 245, 0.015) 0%, rgba(123, 143, 212, 0.015) 100%),
+    radial-gradient(circle at 25% 25%, rgba(159, 176, 245, 0.025) 0%, transparent 40%),
+    radial-gradient(circle at 75% 75%, rgba(123, 143, 212, 0.025) 0%, transparent 40%),
+    linear-gradient(90deg, transparent 20%, rgba(255, 255, 255, 0.08) 50%, transparent 80%);
+  background-size: 100% 100%, 200px 200px, 200px 200px, 100% 100%;
+  border-radius: 12px;
+  margin: 16px;
+  overflow: hidden;
+}
+
+// Chart-specific icon colors
+.products-icon {
+  background: linear-gradient(135deg, #e74c3c, #c0392b) !important;
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3) !important;
+
+  &:hover {
+    box-shadow: 0 6px 16px rgba(231, 76, 60, 0.4) !important;
+  }
+}
+
+.regional-icon {
+  background: linear-gradient(135deg, #3498db, #2980b9) !important;
+  box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3) !important;
+
+  &:hover {
+    box-shadow: 0 6px 16px rgba(52, 152, 219, 0.4) !important;
+  }
+}
+
+.channel-icon {
+  background: linear-gradient(135deg, #f39c12, #e67e22) !important;
+  box-shadow: 0 4px 12px rgba(243, 156, 18, 0.3) !important;
+
+  &:hover {
+    box-shadow: 0 6px 16px rgba(243, 156, 18, 0.4) !important;
+  }
+}
+
+// Enhanced Secondary Charts Grid
+.secondary-charts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding: 0 20px;
+  margin-top: 32px;
+}
+
+// Dark mode support for secondary charts
+.dark-mode {
+  .premium-secondary-chart {
+    background: 
+      linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%),
+      radial-gradient(circle at 20% 80%, rgba(159, 176, 245, 0.12) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(123, 143, 212, 0.12) 0%, transparent 50%),
+      linear-gradient(45deg, transparent 30%, rgba(159, 176, 245, 0.04) 50%, transparent 70%);
+    background-size: 100% 100%, 250px 250px, 250px 250px, 100% 100%;
+    border-color: rgba(159, 176, 245, 0.15);
+    box-shadow: 
+      0 15px 30px rgba(0, 0, 0, 0.25),
+      0 6px 12px rgba(159, 176, 245, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    &::after {
+      background: 
+        radial-gradient(circle at 15% 15%, rgba(45, 45, 45, 0.7) 0%, transparent 25%),
+        radial-gradient(circle at 85% 85%, rgba(45, 45, 45, 0.5) 0%, transparent 25%),
+        linear-gradient(135deg, transparent 40%, rgba(159, 176, 245, 0.03) 50%, transparent 60%);
+    }
+
+    &:hover::after {
+      background: 
+        radial-gradient(circle at 15% 15%, rgba(45, 45, 45, 0.8) 0%, transparent 30%),
+        radial-gradient(circle at 85% 85%, rgba(45, 45, 45, 0.6) 0%, transparent 30%),
+        linear-gradient(135deg, transparent 40%, rgba(159, 176, 245, 0.04) 50%, transparent 60%);
+    }
+  }
+
+  .premium-secondary-header {
+    background: 
+      linear-gradient(135deg, rgba(159, 176, 245, 0.08) 0%, rgba(123, 143, 212, 0.08) 100%),
+      radial-gradient(circle at 30% 50%, rgba(159, 176, 245, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 70% 50%, rgba(123, 143, 212, 0.1) 0%, transparent 50%);
+    background-size: 100% 100%, 180px 180px, 180px 180px;
+    border-bottom-color: rgba(159, 176, 245, 0.15);
+
+    &::before {
+      background: 
+        linear-gradient(45deg, transparent 30%, rgba(45, 45, 45, 0.08) 50%, transparent 70%),
+        radial-gradient(circle at 50% 0%, rgba(45, 45, 45, 0.15) 0%, transparent 50%);
+    }
+  }
+
+  .premium-secondary-wrapper {
+    background: 
+      linear-gradient(135deg, rgba(159, 176, 245, 0.04) 0%, rgba(123, 143, 212, 0.04) 100%),
+      radial-gradient(circle at 25% 25%, rgba(159, 176, 245, 0.06) 0%, transparent 40%),
+      radial-gradient(circle at 75% 75%, rgba(123, 143, 212, 0.06) 0%, transparent 40%),
+      linear-gradient(90deg, transparent 20%, rgba(45, 45, 45, 0.08) 50%, transparent 80%);
+    background-size: 100% 100%, 200px 200px, 200px 200px, 100% 100%;
+  }
+}
+
