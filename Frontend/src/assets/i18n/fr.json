@@ -1,0 +1,180 @@
+{
+  "dashboard": {
+    "title": "Analyses d'Entreprise",
+    "sidebar": {
+      "overview": "Vue d'ensemble",
+      "detailed": "Détaillé",
+      "productAnalytics": "Analyse Produits",
+      "visitStore": "Visiter le Magasin",
+      "aboutUs": "À Propos",
+      "settings": "Paramètres",
+      "language": "Langue",
+      "mainMenu": "Menu Principal",
+      "lightMode": "Mode Clair",
+      "darkMode": "Mode Sombre"
+    },
+    "header": {
+      "welcome": "Bienvenue",
+      "lastLogin": "Dernière connexion",
+      "administrator": "Administrateur",
+      "logout": "Déconnexion"
+    },
+    "filters": {
+      "previousPeriod": "Période Précédente",
+      "lastYear": "Année Dernière",
+      "customRange": "Plage Personnalisée",
+      "refresh": "Actualiser",
+      "exportSales": "Exporter les Ventes"
+    },
+    "kpi": {
+      "totalRevenue": "Revenu Total",
+      "totalOrders": "Total des Commandes",
+      "activeCustomers": "Clients Actifs",
+      "conversionRate": "Taux de Conversion",
+      "averageOrderValue": "Valeur Moyenne des Commandes",
+      "returnRate": "Taux de Retour",
+      "vsLastYear": "vs l'année dernière",
+      "trend": "Tendance",
+      "thisMonth": "ce mois-ci"
+    },
+    "charts": {
+      "salesPerformance": "Performance des Ventes",
+      "topProducts": "Meilleurs Produits",
+      "regionalPerformance": "Performance Régionale",
+      "channelPerformance": "Performance des Canaux",
+      "userDistribution": "Distribution des Utilisateurs",
+      "inventoryStatus": "Statut des Stocks",
+      "productTrends": "Tendances Produits",
+      "categoryPerformance": "Performance des Catégories",
+      "productLifecycle": "Cycle de Vie des Produits",
+      "profitabilityMatrix": "Matrice de Rentabilité",
+      "seasonalityAnalysis": "Analyse Saisonnière",
+      "salesPerformanceOverview": "Aperçu de la Performance des Ventes",
+      "monthlyRevenueComparison": "Comparaison mensuelle des revenus avec analyse des tendances",
+      "topPerformingProducts": "Produits les Plus Performants",
+      "revenueByCategory": "Revenus par catégorie de produits",
+      "regionalDistribution": "Distribution Régionale",
+      "salesByRegion": "Ventes par région",
+      "channelPerformanceTitle": "Performance des Canaux",
+      "onlineVsStore": "Ventes en ligne vs en magasin",
+      "liveData": "Données en Temps Réel",
+      "barView": "Vue en Barres",
+      "lineView": "Vue en Ligne",
+      "export": "Exporter",
+      "details": "Détails",
+      "expand": "Développer",
+      "ytdGrowth": "Croissance YTD",
+      "monthlyAvg": "Moyenne Mensuelle",
+      "performance2024": "Performance 2024",
+      "performance2023": "Performance 2023",
+      "growthRate": "Taux de Croissance",
+      "monthlyAverage": "Moyenne Mensuelle",
+      "loadingChart": "Chargement du graphique...",
+      "detailedDataTable": "Tableau de Données Détaillées"
+    },
+    "productAnalytics": {
+      "title": "Analyses Produits",
+      "totalProducts": "Total des Produits",
+      "productRevenue": "Revenu des Produits",
+      "lowStock": "Stock Faible",
+      "outOfStock": "Rupture de Stock",
+      "growth": "Croissance",
+      "revenueGrowth": "Croissance des Revenus",
+      "stockChange": "Évolution des Stocks"
+    },
+    "userManagement": {
+      "title": "Gestion des Utilisateurs",
+      "addUser": "Ajouter un Utilisateur",
+      "editUser": "Modifier l'Utilisateur",
+      "deleteUser": "Supprimer l'Utilisateur",
+      "save": "Enregistrer",
+      "cancel": "Annuler",
+      "name": "Nom",
+      "email": "Email",
+      "role": "Rôle",
+      "status": "Statut",
+      "totalUsers": "Total des Utilisateurs",
+      "active": "Actif",
+      "inactive": "Inactif",
+      "pending": "En Attente",
+      "actions": "Actions",
+      "id": "ID"
+    },
+    "aboutUs": {
+      "title": "À Propos de Nous",
+      "history": "Histoire et Identité",
+      "historyText": "Fondée en 1920, Lapeyre est une entreprise française leader spécialisée dans l'aménagement intérieur et les solutions d'amélioration de l'habitat. Avec plus d'un siècle d'expertise, nous avons bâti notre réputation sur la qualité, l'innovation et la satisfaction client.",
+      "sustainability": "Engagements Durables",
+      "sustainabilityText": "Nous nous engageons pour le développement durable et la responsabilité environnementale. Nos produits sont conçus avec des matériaux écologiques et des processus de fabrication qui minimisent notre impact environnemental.",
+      "products": "Gamme de Produits et Services",
+      "productsText": "Notre gamme étendue de produits comprend les aménagements de cuisine, les solutions de salle de bain, les portes intérieures, les escaliers et les systèmes d'organisation de la maison. Nous offrons des services complets de la consultation en design à l'installation professionnelle.",
+      "network": "Réseau de Magasins",
+      "networkText": "Avec plus de 200 magasins en France et en Europe, nous fournissons une expertise locale et un service personnalisé à nos clients. Notre réseau continue de s'étendre pour mieux servir notre clientèle croissante.",
+      "founded": "Fondée",
+      "productionSites": "Sites de Production",
+      "stores": "Magasins en France",
+      "international": "Présence Internationale",
+      "multipleCountries": "Plusieurs Pays"
+    }
+  },
+  "common": {
+    "loading": "Chargement...",
+    "error": "Erreur",
+    "success": "Succès",
+    "close": "Fermer",
+    "expand": "Développer",
+    "download": "Télécharger",
+    "export": "Exporter",
+    "filter": "Filtrer",
+    "search": "Rechercher",
+    "view": "Voir",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "add": "Ajouter",
+    "save": "Enregistrer",
+    "cancel": "Annuler",
+    "yes": "Oui",
+    "no": "Non",
+    "confirm": "Confirmer",
+    "back": "Retour",
+    "to": "vers",
+    "next": "Suivant",
+    "previous": "Précédent"
+  },
+  "theme": {
+    "light": "Mode Clair",
+    "dark": "Mode Sombre"
+  },
+  "settings": {
+    "title": "Paramètres du Tableau de Bord",
+    "display": {
+      "title": "Paramètres d'Affichage",
+      "defaultChartType": "Type de Graphique par Défaut",
+      "lineChart": "Graphique en Ligne",
+      "barChart": "Graphique en Barres",
+      "pieChart": "Graphique en Secteurs",
+      "autoRefresh": "Intervalle de Rafraîchissement",
+      "disabled": "Désactivé",
+      "seconds": "secondes",
+      "minute": "minute",
+      "minutes": "minutes"
+    },
+    "data": {
+      "title": "Données et Export",
+      "exportFormat": "Format d'Export",
+      "decimalPlaces": "Décimales"
+    },
+    "user": {
+      "title": "Préférences Utilisateur",
+      "defaultView": "Vue par Défaut du Tableau de Bord",
+      "enableNotifications": "Activer les Notifications"
+    },
+    "system": {
+      "title": "Paramètres Système",
+      "enableAnimations": "Activer les Animations",
+      "clearCache": "Vider le Cache"
+    },
+    "save": "Enregistrer les Paramètres",
+    "reset": "Réinitialiser"
+  }
+} 

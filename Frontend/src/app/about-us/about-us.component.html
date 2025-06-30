@@ -1,35 +1,30 @@
 <div class="about-us-container">
+  <!-- Debug Info -->
+  <div style="background: #f0f0f0; padding: 10px; margin: 10px; border-radius: 5px; font-size: 12px;">
+    <strong>Debug About Us:</strong> 
+    Titre: {{ 'dashboard.aboutUs.title' | translate }} | 
+    Histoire: {{ 'dashboard.aboutUs.history' | translate }} |
+    Fondée: {{ 'dashboard.aboutUs.founded' | translate }}
+    <br>
+    <button (click)="testLanguage('en')" style="margin: 5px; padding: 5px 10px;">Test English</button>
+    <button (click)="testLanguage('fr')" style="margin: 5px; padding: 5px 10px;">Test Français</button>
+    <button (click)="testLanguage('es')" style="margin: 5px; padding: 5px 10px;">Test Español</button>
+  </div>
+
   <div class="about-us-header">
     <button class="back-btn" (click)="goBack()">
       <i class="fa-solid fa-arrow-left"></i>
-      Back to Dashboard
+      {{ 'common.back' | translate }} {{ 'common.to' | translate }} {{ 'dashboard.sidebar.overview' | translate }}
     </button>
-    <h1>About Us</h1>
+    <h1>{{ 'dashboard.aboutUs.title' | translate }}</h1>
   </div>
 
   <div class="about-us-content">
     <div class="about-section">
-      <h2>History and Identity</h2>
+      <h2>{{ 'dashboard.aboutUs.history' | translate }}</h2>
       
       <div class="about-text">
-        <p>
-          Lapeyre is a French company specialized in sustainable home improvement, offering a wide range of products: 
-          joinery (doors, windows, stairs), kitchens, bathrooms, storage solutions, and more.
-        </p>
-        
-        <p>
-          It was founded in 1931 by Martial Lapeyre and quickly became known for its fixed-price catalog and focus on accessible quality.
-        </p>
-        
-        <p>
-          Over time, the company changed ownership several times: acquired by Poliet in 1975, then by Saint-Gobain in 1996, 
-          and later sold to the German group Mutares in 2021.
-        </p>
-        
-        <p>
-          Today, Lapeyre operates 9 production sites and around 130 stores across France, with additional factories and 
-          points of sale internationally.
-        </p>
+        <p>{{ 'dashboard.aboutUs.historyText' | translate }}</p>
       </div>
     </div>
 
@@ -39,7 +34,7 @@
           <i class="fa-solid fa-calendar"></i>
         </div>
         <div class="stat-content">
-          <h3>Founded</h3>
+          <h3>{{ 'dashboard.aboutUs.founded' | translate }}</h3>
           <p>1931</p>
         </div>
       </div>
@@ -49,7 +44,7 @@
           <i class="fa-solid fa-industry"></i>
         </div>
         <div class="stat-content">
-          <h3>Production Sites</h3>
+          <h3>{{ 'dashboard.aboutUs.productionSites' | translate }}</h3>
           <p>9</p>
         </div>
       </div>
@@ -59,7 +54,7 @@
           <i class="fa-solid fa-store"></i>
         </div>
         <div class="stat-content">
-          <h3>Stores in France</h3>
+          <h3>{{ 'dashboard.aboutUs.stores' | translate }}</h3>
           <p>~130</p>
         </div>
       </div>
@@ -69,138 +64,33 @@
           <i class="fa-solid fa-globe"></i>
         </div>
         <div class="stat-content">
-          <h3>International Presence</h3>
-          <p>Multiple Countries</p>
+          <h3>{{ 'dashboard.aboutUs.international' | translate }}</h3>
+          <p>{{ 'dashboard.aboutUs.multipleCountries' | translate }}</p>
         </div>
       </div>
     </div>
 
     <div class="about-section">
-      <h2>Sustainability Commitments</h2>
+      <h2>{{ 'dashboard.aboutUs.sustainability' | translate }}</h2>
       
       <div class="about-text">
-        <p>
-          Lapeyre is committed to sustainable development and environmental responsibility. The company focuses on:
-        </p>
-        
-        <ul class="commitment-list">
-          <li>
-            <i class="fa-solid fa-leaf"></i>
-            <span>Eco-friendly materials and sustainable sourcing</span>
-          </li>
-          <li>
-            <i class="fa-solid fa-recycle"></i>
-            <span>Recycling programs and waste reduction</span>
-          </li>
-          <li>
-            <i class="fa-solid fa-solar-panel"></i>
-            <span>Energy-efficient products and solutions</span>
-          </li>
-          <li>
-            <i class="fa-solid fa-tree"></i>
-            <span>Forest certification and responsible wood sourcing</span>
-          </li>
-          <li>
-            <i class="fa-solid fa-truck"></i>
-            <span>Optimized logistics to reduce carbon footprint</span>
-          </li>
-        </ul>
-        
-        <p>
-          These commitments are reflected in our product range, manufacturing processes, and daily operations, 
-          ensuring we contribute positively to environmental protection while meeting customer needs.
-        </p>
+        <p>{{ 'dashboard.aboutUs.sustainabilityText' | translate }}</p>
       </div>
     </div>
 
     <div class="about-section">
-      <h2>Product Range and Services</h2>
-      
-      <div class="product-services-grid">
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fa-solid fa-door-open"></i>
-          </div>
-          <h3>Doors & Windows</h3>
-          <p>High-quality interior and exterior doors, windows, and joinery solutions for every home style and budget.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fa-solid fa-utensils"></i>
-          </div>
-          <h3>Kitchens</h3>
-          <p>Custom kitchen designs with modern appliances, storage solutions, and professional installation services.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fa-solid fa-bath"></i>
-          </div>
-          <h3>Bathrooms</h3>
-          <p>Complete bathroom solutions including fixtures, tiles, storage, and renovation services.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fa-solid fa-stairs"></i>
-          </div>
-          <h3>Stairs & Storage</h3>
-          <p>Custom staircases, storage systems, and space optimization solutions for modern living.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fa-solid fa-tools"></i>
-          </div>
-          <h3>Installation Services</h3>
-          <p>Professional installation, maintenance, and after-sales support for all our products.</p>
-        </div>
-
-        <div class="service-card">
-          <div class="service-icon">
-            <i class="fa-solid fa-palette"></i>
-          </div>
-          <h3>Custom Design</h3>
-          <p>Personalized design consultations and custom solutions tailored to your specific needs and preferences.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="about-section">
-      <h2>Store Network</h2>
+      <h2>{{ 'dashboard.aboutUs.products' | translate }}</h2>
       
       <div class="about-text">
-        <p>
-          Lapeyre operates an extensive network of stores across France, providing easy access to our products and services:
-        </p>
-        
-        <div class="store-network-info">
-          <div class="network-stat">
-            <h4>130+ Stores</h4>
-            <p>Strategically located across France for convenient access</p>
-          </div>
-          
-          <div class="network-stat">
-            <h4>9 Production Sites</h4>
-            <p>Ensuring quality control and efficient supply chain management</p>
-          </div>
-          
-          <div class="network-stat">
-            <h4>Expert Staff</h4>
-            <p>Trained professionals ready to assist with your home improvement projects</p>
-          </div>
-          
-          <div class="network-stat">
-            <h4>Online Presence</h4>
-            <p>E-commerce platform with comprehensive product catalogs and online ordering</p>
-          </div>
-        </div>
-        
-        <p>
-          Our stores offer showrooms, design consultations, product demonstrations, and professional installation services. 
-          Each location is staffed with knowledgeable experts who can help you find the perfect solutions for your home.
-        </p>
+        <p>{{ 'dashboard.aboutUs.productsText' | translate }}</p>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <h2>{{ 'dashboard.aboutUs.network' | translate }}</h2>
+      
+      <div class="about-text">
+        <p>{{ 'dashboard.aboutUs.networkText' | translate }}</p>
       </div>
     </div>
   </div>

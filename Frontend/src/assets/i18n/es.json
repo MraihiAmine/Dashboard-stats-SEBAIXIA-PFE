@@ -1,0 +1,181 @@
+{
+  "dashboard": {
+    "title": "Análisis Empresarial",
+    "sidebar": {
+      "overview": "Resumen",
+      "detailed": "Detallado",
+      "productAnalytics": "Análisis de Productos",
+      "visitStore": "Visitar Tienda",
+      "aboutUs": "Acerca de Nosotros",
+      "settings": "Configuración",
+      "language": "Idioma",
+      "mainMenu": "Menú Principal",
+      "lightMode": "Modo Claro",
+      "darkMode": "Modo Oscuro"
+    },
+    "header": {
+      "welcome": "Bienvenido",
+      "lastLogin": "Último acceso",
+      "administrator": "Administrador",
+      "logout": "Cerrar Sesión"
+    },
+    "filters": {
+      "previousPeriod": "Período Anterior",
+      "lastYear": "Año Anterior",
+      "customRange": "Rango Personalizado",
+      "refresh": "Actualizar",
+      "exportSales": "Exportar Ventas"
+    },
+    "kpi": {
+      "totalRevenue": "Ingresos Totales",
+      "totalOrders": "Total de Pedidos",
+      "activeCustomers": "Clientes Activos",
+      "conversionRate": "Tasa de Conversión",
+      "averageOrderValue": "Valor Promedio del Pedido",
+      "returnRate": "Tasa de Devolución",
+      "vsLastYear": "vs año anterior",
+      "trend": "Tendencia",
+      "thisMonth": "este mes"
+    },
+    "charts": {
+      "salesPerformance": "Rendimiento de Ventas",
+      "topProducts": "Productos Principales",
+      "regionalPerformance": "Rendimiento Regional",
+      "channelPerformance": "Rendimiento de Canales",
+      "userDistribution": "Distribución de Usuarios",
+      "inventoryStatus": "Estado del Inventario",
+      "productTrends": "Tendencias de Productos",
+      "categoryPerformance": "Rendimiento por Categoría",
+      "productLifecycle": "Ciclo de Vida del Producto",
+      "profitabilityMatrix": "Matriz de Rentabilidad",
+      "seasonalityAnalysis": "Análisis de Estacionalidad",
+      "salesPerformanceOverview": "Resumen del Rendimiento de Ventas",
+      "monthlyRevenueComparison": "Comparación mensual de ingresos con análisis de tendencias",
+      "topPerformingProducts": "Productos de Mejor Rendimiento",
+      "revenueByCategory": "Ingresos por categoría de productos",
+      "regionalDistribution": "Distribución Regional",
+      "salesByRegion": "Ventas por región",
+      "channelPerformanceTitle": "Rendimiento de Canales",
+      "onlineVsStore": "Ventas en línea vs tienda",
+      "liveData": "Datos en Vivo",
+      "barView": "Vista de Barras",
+      "lineView": "Vista de Líneas",
+      "export": "Exportar",
+      "details": "Detalles",
+      "expand": "Expandir",
+      "ytdGrowth": "Crecimiento YTD",
+      "monthlyAvg": "Promedio Mensual",
+      "performance2024": "Rendimiento 2024",
+      "performance2023": "Rendimiento 2023",
+      "growthRate": "Tasa de Crecimiento",
+      "monthlyAverage": "Promedio Mensual",
+      "loadingChart": "Cargando gráfico...",
+      "detailedDataTable": "Tabla de Datos Detallada"
+    },
+    "productAnalytics": {
+      "title": "Análisis de Productos",
+      "totalProducts": "Total de Productos",
+      "productRevenue": "Ingresos de Productos",
+      "lowStock": "Stock Bajo",
+      "outOfStock": "Sin Stock",
+      "growth": "Crecimiento",
+      "revenueGrowth": "Crecimiento de Ingresos",
+      "stockChange": "Cambio de Stock"
+    },
+    "userManagement": {
+      "title": "Gestión de Usuarios",
+      "addUser": "Agregar Usuario",
+      "editUser": "Editar Usuario",
+      "deleteUser": "Eliminar Usuario",
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "name": "Nombre",
+      "email": "Correo",
+      "role": "Rol",
+      "status": "Estado",
+      "totalUsers": "Total de Usuarios",
+      "active": "Activo",
+      "inactive": "Inactivo",
+      "pending": "Pendiente",
+      "actions": "Acciones",
+      "id": "ID"
+    },
+    "aboutUs": {
+      "title": "Acerca de Nosotros",
+      "history": "Historia e Identidad",
+      "historyText": "Fundada en 1920, Lapeyre ha sido una empresa francesa líder especializada en equipamiento interior y soluciones de mejora del hogar. Con más de un siglo de experiencia, hemos construido nuestra reputación en calidad, innovación y satisfacción del cliente.",
+      "sustainability": "Compromisos de Sostenibilidad",
+      "sustainabilityText": "Estamos comprometidos con el desarrollo sostenible y la responsabilidad ambiental. Nuestros productos están diseñados con materiales ecológicos y procesos de fabricación que minimizan nuestro impacto ambiental.",
+      "products": "Gama de Productos y Servicios",
+      "productsText": "Nuestra amplia gama de productos incluye equipamiento de cocina, soluciones de baño, puertas interiores, escaleras y sistemas de organización del hogar. Ofrecemos servicios integrales desde consultoría de diseño hasta instalación profesional.",
+      "network": "Red de Tiendas",
+      "networkText": "Con más de 200 tiendas en Francia y Europa, proporcionamos experiencia local y servicio personalizado a nuestros clientes. Nuestra red continúa expandiéndose para servir mejor a nuestra creciente base de clientes.",
+      "founded": "Fundada",
+      "productionSites": "Sitios de Producción",
+      "stores": "Tiendas en Francia",
+      "international": "Presencia Internacional",
+      "multipleCountries": "Múltiples Países"
+    },
+    "theme": {
+      "light": "Modo Claro",
+      "dark": "Modo Oscuro"
+    },
+    "settings": "Configuración"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "close": "Cerrar",
+    "expand": "Expandir",
+    "download": "Descargar",
+    "export": "Exportar",
+    "filter": "Filtrar",
+    "search": "Buscar",
+    "view": "Ver",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "add": "Agregar",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "yes": "Sí",
+    "no": "No",
+    "confirm": "Confirmar",
+    "back": "Atrás",
+    "to": "a",
+    "next": "Siguiente",
+    "previous": "Anterior"
+  },
+  "settings": {
+    "title": "Configuración del Panel",
+    "display": {
+      "title": "Configuración de Visualización",
+      "defaultChartType": "Tipo de Gráfico Predeterminado",
+      "lineChart": "Gráfico de Líneas",
+      "barChart": "Gráfico de Barras",
+      "pieChart": "Gráfico Circular",
+      "autoRefresh": "Intervalo de Actualización",
+      "disabled": "Deshabilitado",
+      "seconds": "segundos",
+      "minute": "minuto",
+      "minutes": "minutos"
+    },
+    "data": {
+      "title": "Datos y Exportación",
+      "exportFormat": "Formato de Exportación",
+      "decimalPlaces": "Decimales"
+    },
+    "user": {
+      "title": "Preferencias de Usuario",
+      "defaultView": "Vista Predeterminada del Panel",
+      "enableNotifications": "Habilitar Notificaciones"
+    },
+    "system": {
+      "title": "Configuración del Sistema",
+      "enableAnimations": "Habilitar Animaciones",
+      "clearCache": "Limpiar Caché"
+    },
+    "save": "Guardar Configuración",
+    "reset": "Restablecer"
+  }
+} 

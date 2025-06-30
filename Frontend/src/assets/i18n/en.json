@@ -1,0 +1,181 @@
+{
+  "dashboard": {
+    "title": "Enterprise Analytics",
+    "sidebar": {
+      "overview": "Overview",
+      "detailed": "Detailed",
+      "productAnalytics": "Product Analytics",
+      "visitStore": "Visit Store",
+      "aboutUs": "About Us",
+      "settings": "Settings",
+      "language": "Language",
+      "mainMenu": "Main Menu",
+      "lightMode": "Light Mode",
+      "darkMode": "Dark Mode"
+    },
+    "header": {
+      "welcome": "Welcome",
+      "lastLogin": "Last login",
+      "administrator": "Administrator",
+      "logout": "Logout"
+    },
+    "filters": {
+      "previousPeriod": "Previous Period",
+      "lastYear": "Last Year",
+      "customRange": "Custom Range",
+      "refresh": "Refresh",
+      "exportSales": "Export Sales"
+    },
+    "kpi": {
+      "totalRevenue": "Total Revenue",
+      "totalOrders": "Total Orders",
+      "activeCustomers": "Active Customers",
+      "conversionRate": "Conversion Rate",
+      "averageOrderValue": "Average Order Value",
+      "returnRate": "Return Rate",
+      "vsLastYear": "vs last year",
+      "trend": "Trend",
+      "thisMonth": "this month"
+    },
+    "charts": {
+      "salesPerformance": "Sales Performance",
+      "topProducts": "Top Products",
+      "regionalPerformance": "Regional Performance",
+      "channelPerformance": "Channel Performance",
+      "userDistribution": "User Distribution",
+      "inventoryStatus": "Inventory Status",
+      "productTrends": "Product Trends",
+      "categoryPerformance": "Category Performance",
+      "productLifecycle": "Product Lifecycle",
+      "profitabilityMatrix": "Profitability Matrix",
+      "seasonalityAnalysis": "Seasonality Analysis",
+      "salesPerformanceOverview": "Sales Performance Overview",
+      "monthlyRevenueComparison": "Monthly revenue comparison with trend analysis",
+      "topPerformingProducts": "Top Performing Products",
+      "revenueByCategory": "Revenue by product category",
+      "regionalDistribution": "Regional Distribution",
+      "salesByRegion": "Sales by region",
+      "channelPerformanceTitle": "Channel Performance",
+      "onlineVsStore": "Online vs Store sales",
+      "liveData": "Live Data",
+      "barView": "Bar View",
+      "lineView": "Line View",
+      "export": "Export",
+      "details": "Details",
+      "expand": "Expand",
+      "ytdGrowth": "YTD Growth",
+      "monthlyAvg": "Monthly Avg",
+      "performance2024": "2024 Performance",
+      "performance2023": "2023 Performance",
+      "growthRate": "Growth Rate",
+      "monthlyAverage": "Monthly Average",
+      "loadingChart": "Loading chart...",
+      "detailedDataTable": "Detailed Data Table"
+    },
+    "productAnalytics": {
+      "title": "Product Analytics",
+      "totalProducts": "Total Products",
+      "productRevenue": "Product Revenue",
+      "lowStock": "Low Stock",
+      "outOfStock": "Out of Stock",
+      "growth": "Growth",
+      "revenueGrowth": "Revenue Growth",
+      "stockChange": "Stock Change"
+    },
+    "userManagement": {
+      "title": "User Management",
+      "addUser": "Add User",
+      "editUser": "Edit User",
+      "deleteUser": "Delete User",
+      "save": "Save",
+      "cancel": "Cancel",
+      "name": "Name",
+      "email": "Email",
+      "role": "Role",
+      "status": "Status",
+      "totalUsers": "Total Users",
+      "active": "Active",
+      "inactive": "Inactive",
+      "pending": "Pending",
+      "actions": "Actions",
+      "id": "ID"
+    },
+    "aboutUs": {
+      "title": "About Us",
+      "history": "History & Identity",
+      "historyText": "Founded in 1920, Lapeyre has been a leading French company specializing in interior fittings and home improvement solutions. With over a century of expertise, we have built our reputation on quality, innovation, and customer satisfaction.",
+      "sustainability": "Sustainability Commitments",
+      "sustainabilityText": "We are committed to sustainable development and environmental responsibility. Our products are designed with eco-friendly materials and manufacturing processes that minimize our environmental impact.",
+      "products": "Product Range & Services",
+      "productsText": "Our extensive product range includes kitchen fittings, bathroom solutions, interior doors, staircases, and home organization systems. We offer comprehensive services from design consultation to professional installation.",
+      "network": "Store Network",
+      "networkText": "With over 200 stores across France and Europe, we provide local expertise and personalized service to our customers. Our network continues to expand to better serve our growing customer base.",
+      "founded": "Founded",
+      "productionSites": "Production Sites",
+      "stores": "Stores in France",
+      "international": "International Presence",
+      "multipleCountries": "Multiple Countries"
+    },
+    "theme": {
+      "light": "Light Mode",
+      "dark": "Dark Mode"
+    },
+    "settings": "Settings"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "close": "Close",
+    "expand": "Expand",
+    "download": "Download",
+    "export": "Export",
+    "filter": "Filter",
+    "search": "Search",
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "add": "Add",
+    "save": "Save",
+    "cancel": "Cancel",
+    "yes": "Yes",
+    "no": "No",
+    "confirm": "Confirm",
+    "back": "Back",
+    "to": "to",
+    "next": "Next",
+    "previous": "Previous"
+  },
+  "settings": {
+    "title": "Dashboard Settings",
+    "display": {
+      "title": "Display Settings",
+      "defaultChartType": "Default Chart Type",
+      "lineChart": "Line Chart",
+      "barChart": "Bar Chart",
+      "pieChart": "Pie Chart",
+      "autoRefresh": "Auto Refresh Interval",
+      "disabled": "Disabled",
+      "seconds": "seconds",
+      "minute": "minute",
+      "minutes": "minutes"
+    },
+    "data": {
+      "title": "Data & Export",
+      "exportFormat": "Export Format",
+      "decimalPlaces": "Decimal Places"
+    },
+    "user": {
+      "title": "User Preferences",
+      "defaultView": "Default Dashboard View",
+      "enableNotifications": "Enable Notifications"
+    },
+    "system": {
+      "title": "System Settings",
+      "enableAnimations": "Enable Animations",
+      "clearCache": "Clear Cache"
+    },
+    "save": "Save Settings",
+    "reset": "Reset to Default"
+  }
+} 

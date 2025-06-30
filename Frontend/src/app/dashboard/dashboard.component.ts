@@ -10,6 +10,18 @@ import { UserService } from '../services/user.service';
 import { ProductApiService, ProductStatistics, InventoryStatus, SalesTrends, CategoryPerformance, ProductLifecycle, ProfitabilityMatrix, SeasonalityAnalysis } from '../services/product-api.service';
 import { User, CreateUserRequest, UpdateUserRequest } from '../types/user.interface';
 import { Subject, takeUntil } from 'rxjs';
+import { TranslationService } from '../services/translation.service';
+import { TranslatePipe } from '../pipes/translate.pipe';
+
+interface DashboardSettings {
+  defaultChartType: 'line' | 'bar' | 'pie';
+  autoRefreshInterval: number;
+  exportFormat: 'csv' | 'excel' | 'pdf';
+  decimalPlaces: number;
+  defaultView: 'overview' | 'detailed' | 'productAnalytics';
+  enableNotifications: boolean;
+  enableAnimations: boolean;
+}
 
 @Component({
   selector: 'app-dashboard',
@@ -1004,7 +1016,28 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }
   };
 
-  constructor(private authService: AuthService, private router: Router, private userService: UserService, private productApiService: ProductApiService) {
+  selectedLanguage: string = 'en';
+  availableLanguages: { code: string; name: string; nativeName: string }[] = [];
+
+  // Settings
+  showSettingsModal: boolean = false;
+  settings: DashboardSettings = {
+    defaultChartType: 'line',
+    autoRefreshInterval: 0,
+    exportFormat: 'csv',
+    decimalPlaces: 0,
+    defaultView: 'overview',
+    enableNotifications: false,
+    enableAnimations: true
+  };
+
+  constructor(
+    private authService: AuthService, 
+    private router: Router, 
+    private userService: UserService, 
+    private productApiService: ProductApiService,
+    private translationService: TranslationService
+  ) {
     this.authService.getCurrentUser().subscribe(user => {
       this.email = user?.email || '';
     });
@@ -1041,6 +1074,22 @@ export class DashboardComponent implements OnInit, OnDestroy {
       this.userName = 'User';
     }
     console.log('Dashboard extracted userName:', this.userName);
+
+    // Initialize language
+    this.selectedLanguage = localStorage.getItem('language') || 'en';
+    this.availableLanguages = this.translationService.getAvailableLanguages();
+    
+    // Ensure the translation service loads the current language
+    this.translationService.loadLanguage(this.selectedLanguage);
+    
+    // Subscribe to language changes
+    this.translationService.currentLanguage$.subscribe(lang => {
+      console.log('Language changed to:', lang);
+    });
+
+    // Load settings
+    this.loadSettings();
+    this.applySettings();
   }
 
   ngOnDestroy(): void {
@@ -1146,8 +1195,8 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   showSettings(): void {
-    // TODO: Implement settings panel
-    console.log('Show settings');
+    this.loadSettings();
+    this.showSettingsModal = true;
   }
 
   showChartDetails(chartType: string): void {
@@ -1891,5 +1940,80 @@ export class DashboardComponent implements OnInit, OnDestroy {
     const now = new Date();
     localStorage.setItem('lastLoginTimestamp', now.getTime().toString());
     this.calculateLastLoginTime();
+  }
+
+  onLanguageChange() {
+    console.log('Language change requested to:', this.selectedLanguage);
+    this.translationService.loadLanguage(this.selectedLanguage);
+  }
+
+  testLanguage(lang: string) {
+    console.log('Testing language switch to:', lang);
+    this.selectedLanguage = lang;
+    this.translationService.loadLanguage(lang);
+  }
+
+  // Settings Methods
+  closeSettings(): void {
+    this.showSettingsModal = false;
+  }
+
+  saveSettings(): void {
+    localStorage.setItem('dashboardSettings', JSON.stringify(this.settings));
+    this.applySettings();
+    this.closeSettings();
+    console.log('Settings saved:', this.settings);
+  }
+
+  resetSettings(): void {
+    this.settings = {
+      defaultChartType: 'line',
+      autoRefreshInterval: 0,
+      exportFormat: 'csv',
+      decimalPlaces: 0,
+      defaultView: 'overview',
+      enableNotifications: false,
+      enableAnimations: true
+    };
+  }
+
+  loadSettings(): void {
+    const savedSettings = localStorage.getItem('dashboardSettings');
+    if (savedSettings) {
+      this.settings = { ...this.settings, ...JSON.parse(savedSettings) };
+    }
+  }
+
+  applySettings(): void {
+    // Apply chart type settings
+    this.salesChartType = this.settings.defaultChartType;
+    this.channelChartType = this.settings.defaultChartType;
+    this.productTrendsChartType = this.settings.defaultChartType;
+
+    // Apply auto-refresh
+    if (this.settings.autoRefreshInterval > 0) {
+      this.autoRefresh = true;
+      this.refreshInterval = this.settings.autoRefreshInterval;
+      this.toggleAutoRefresh();
+    } else {
+      this.autoRefresh = false;
+    }
+
+    // Apply default view
+    this.setViewMode(this.settings.defaultView);
+
+    // Apply animations
+    if (!this.settings.enableAnimations) {
+      document.body.classList.add('reduce-motion');
+    } else {
+      document.body.classList.remove('reduce-motion');
+    }
+  }
+
+  clearCache(): void {
+    localStorage.removeItem('dashboardSettings');
+    localStorage.removeItem('lastLoginTimestamp');
+    // Clear other cached data
+    console.log('Cache cleared');
   }
 }
