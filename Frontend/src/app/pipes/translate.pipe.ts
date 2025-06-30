@@ -1,4 +1,4 @@
-import { Pipe, PipeTransform, OnDestroy } from '@angular/core';
+import { Pipe, PipeTransform, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { TranslationService } from '../services/translation.service';
 import { Observable, Subscription } from 'rxjs';
 
@@ -9,15 +9,15 @@ import { Observable, Subscription } from 'rxjs';
 })
 export class TranslatePipe implements PipeTransform, OnDestroy {
   private subscription: Subscription | null = null;
-  private lastKey: string = '';
-  private lastValue: string = '';
 
-  constructor(private translationService: TranslationService) {}
+  constructor(
+    private translationService: TranslationService,
+    private changeDetector: ChangeDetectorRef
+  ) {}
 
   transform(key: string): string {
-    // Always get the current translation
+    // Get the current translation
     const result = this.translationService.translate(key);
-    console.log(`Translate pipe: ${key} -> ${result}`);
     
     // Subscribe to language changes to force updates
     if (this.subscription) {
@@ -25,11 +25,11 @@ export class TranslatePipe implements PipeTransform, OnDestroy {
     }
     
     this.subscription = this.translationService.currentLanguage$.subscribe(() => {
-      // This will trigger the pipe to re-evaluate
-      console.log(`Language changed, pipe should update for key: ${key}`);
+      // Force change detection when language changes
+      this.changeDetector.markForCheck();
     });
 
-    return result;
+    return result || key; // Return the key if no translation found
   }
 
   ngOnDestroy(): void {

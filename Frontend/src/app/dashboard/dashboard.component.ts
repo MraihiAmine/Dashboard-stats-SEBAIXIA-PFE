@@ -26,7 +26,7 @@ interface DashboardSettings {
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [NgChartsModule, CommonModule, FormsModule],
+  imports: [NgChartsModule, CommonModule, FormsModule, TranslatePipe],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
@@ -1195,6 +1195,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   showSettings(): void {
+    this.availableLanguages = this.translationService.getAvailableLanguages();
     this.loadSettings();
     this.showSettingsModal = true;
   }
@@ -1945,12 +1946,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   onLanguageChange() {
     console.log('Language change requested to:', this.selectedLanguage);
     this.translationService.loadLanguage(this.selectedLanguage);
-  }
-
-  testLanguage(lang: string) {
-    console.log('Testing language switch to:', lang);
-    this.selectedLanguage = lang;
-    this.translationService.loadLanguage(lang);
   }
 
   // Settings Methods

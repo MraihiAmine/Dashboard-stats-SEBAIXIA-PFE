@@ -30,6 +30,7 @@ export class TranslationService {
           this.translations.next(translations);
           this.currentLanguage.next(lang);
           localStorage.setItem('language', lang);
+          console.log(`Language ${lang} loaded and set successfully`);
         },
         error: (error) => {
           console.error(`Failed to load translations for ${lang}:`, error);
